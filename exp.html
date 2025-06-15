@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -33,9 +35,18 @@
             text-align: center;
             margin-bottom: clamp(2rem, 5vh, 4rem);
             line-height: 1.2;
+            background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
         }
         
-        .project-card {
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .experience-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: clamp(0.8rem, 2vw, 1.2rem);
@@ -47,7 +58,7 @@
             overflow: hidden;
         }
         
-        .project-card::before {
+        .experience-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -57,14 +68,14 @@
             background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
         }
         
-        .project-card:hover {
+        .experience-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-0.3vh);
             box-shadow: 0 2vh 4vh rgba(0, 0, 0, 0.3);
         }
         
-        .project-title {
+        .experience-title-card {
             font-size: clamp(1.2rem, 4vw, 1.8rem);
             font-weight: 700;
             color: #4da6ff;
@@ -75,7 +86,7 @@
             line-height: 1.3;
         }
         
-        .project-subtitle {
+        .experience-subtitle {
             font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             color: #adb5bd;
             margin-bottom: clamp(1.2rem, 3vh, 2rem);
@@ -83,7 +94,7 @@
             line-height: 1.4;
         }
         
-        .project-description {
+        .experience-description {
             color: #e9ecef;
             line-height: 1.7;
             margin-bottom: clamp(1.2rem, 3vh, 2rem);
@@ -91,7 +102,7 @@
             font-size: clamp(0.9rem, 2.2vw, 1rem);
         }
         
-        .project-abstract {
+        .experience-abstract {
             background: rgba(255, 255, 255, 0.03);
             border-left: clamp(3px, 1vw, 4px) solid #20c997;
             padding: clamp(1rem, 3vw, 1.5rem);
@@ -165,8 +176,10 @@
             transform: scale(1.05);
         }
         
-        .project-link {
-            display: inline-block;
+        .experience-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             padding: clamp(0.7rem, 2vw, 1rem) clamp(1.2rem, 3vw, 2rem);
@@ -178,13 +191,13 @@
             font-size: clamp(0.85rem, 2.2vw, 1rem);
         }
         
-        .project-link:hover {
+        .experience-link:hover {
             color: white;
             transform: translateY(-0.2vh);
             box-shadow: 0 1vh 2vh rgba(102, 126, 234, 0.3);
         }
         
-        .project-meta {
+        .experience-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -193,13 +206,13 @@
             gap: clamp(0.5rem, 1.5vw, 1rem);
         }
         
-        .project-date {
+        .experience-date {
             color: #6c757d;
             font-size: clamp(0.8rem, 2vw, 0.9rem);
             font-weight: 500;
         }
         
-        .project-type {
+        .experience-type {
             background: rgba(168, 85, 247, 0.2);
             color: #a855f7;
             padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.6rem, 2vw, 1rem);
@@ -231,14 +244,128 @@
             font-weight: 600;
         }
         
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2, #ff6b6b);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4da6ff;
+            border: 3px solid #1a1a1a;
+            z-index: 10;
+        }
+        
+        /* Enhanced navbar styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.6rem 1rem;
+            background-color: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(15px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #4ecdc4;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+        
+        .nav-link:hover {
+            color: #4ecdc4 !important;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.03);
+        }
+        
+        .rounded-image {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover .rounded-image {
+            border-color: #4ecdc4;
+            transform: rotate(10deg);
+        }
+        
+        /* Bottom navigation */
+        .bottom-navbar {
+            background: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        
+        .imageicon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .imageicon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .project-card {
+            .experience-card {
                 padding: 1.5rem;
                 margin-bottom: 2rem;
             }
             
-            .project-meta {
+            .experience-meta {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -246,6 +373,21 @@
             .main-container {
                 margin-left: 3%;
                 margin-right: 3%;
+            }
+            
+            .navbar-collapse {
+                background-color: rgba(33, 37, 41, 0.95);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-top: 0.5rem;
+            }
+            
+            .timeline {
+                padding-left: 1.5rem;
+            }
+            
+            .timeline-item::before {
+                left: -1.5rem;
             }
         }
         
@@ -256,7 +398,7 @@
                 margin: 0.3rem 0.4rem 0.3rem 0;
             }
             
-            .project-abstract, .acknowledgments {
+            .experience-abstract, .acknowledgments {
                 padding: 1rem;
             }
         }
@@ -265,7 +407,7 @@
   <body class="bg-dark text-white">
    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="35" height="35" class="rounded-image"></a>
     <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -273,16 +415,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="aboutme.html">About Me</a>
+          <a class="nav-link" href="aboutme.html">
+            <i class="fas fa-user"></i> About Me
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="skill.html">Skills</a>
+          <a class="nav-link" href="skill.html">
+            <i class="fas fa-code"></i> Skills
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="projects.html">Projects</a>
+          <a class="nav-link" href="projects.html">
+            <i class="fas fa-laptop-code"></i> Projects
+          </a>
         </li>
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="exp.html">Experience</a>
+          <a class="nav-link active" aria-current="page" href="exp.html">
+            <i class="fas fa-briefcase"></i> Experience
+          </a>
         </li>
       </ul>
     </div>
@@ -292,64 +442,280 @@
 <div class="container main-container">
     <div class="experience-section">
         <!-- Page Title -->
-        <h1 class="experience-title">Experience</h1>
+        <h1 class="experience-title">Experience & Education</h1>
         
-        <!-- Bachelor's Project -->
-        <div class="project-card">
-            <div class="project-meta">
-                <div class="project-date">📅 Bachelor's Thesis Project</div>
-                <div class="project-type">🎓 Academic Research</div>
-            </div>
-            
-            <h2 class="project-title">Marvelous Movements: Unleashing the Power of Gesture Control in Our Robotic Arm</h2>
-            
-            <p class="project-subtitle">
-                Revolutionary gesture-controlled robotic arm system using advanced sensor technology
-            </p>
-            
-            <div class="project-description">
-                In collaboration with my esteemed friend <span class="collaborator">Siri</span>, we embarked on an extraordinary journey of innovation, pushing the boundaries of gesture control in our remarkable project. The project stands as a testament to our unwavering dedication to pushing the boundaries of possibility and shaping a future where humans and machines interact seamlessly in an innovative and intuitive dance.
-            </div>
+        <div class="timeline">
+            <!-- Current Master's Studies -->
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-meta">
+                        <div class="experience-date">📅 August 2023 - Present</div>
+                        <div class="experience-type">🎓 Master's Studies</div>
+                    </div>
+                    
+                    <h2 class="experience-title-card">Master's in Telecommunication Systems - Cybersecurity Specialization</h2>
+                    
+                    <p class="experience-subtitle">
+                        Advanced studies in cybersecurity, network security, and telecommunications at BTH, Sweden
+                    </p>
+                    
+                    <div class="experience-description">
+                        Currently pursuing Master of Science in Telecommunication Systems with a specialized focus on cybersecurity 
+                        at Blekinge Institute of Technology. The program covers advanced topics including network security protocols, 
+                        threat analysis, security risk management, and emerging cybersecurity technologies. Engaged in cutting-edge 
+                        research on AI-driven threat detection systems and automated incident response mechanisms.
+                    </div>
 
-            <!-- Abstract Section -->
-            <div class="project-abstract">
-                <div class="abstract-title">📖 Project Abstract</div>
-                <div class="abstract-text">
-                    Industrial robotic arms have transformed the manufacturing environment by providing efficient and precise automation solutions. These sophisticated machines, powered by innovative technology, are capable of performing difficult tasks with speed and accuracy. The project described here is related to industrial robotics because it focuses on the creation of a gesture-controlled robotic arm.
-                    <br><br>
-                    This project aims to build a robotic arm that can be controlled by gestures utilising <strong>MPU6050 sensors</strong> and <strong>flex sensors</strong>. By interpreting gestures acquired by strategically placed sensors, the robotic arm is designed to emulate human arm movements. The MPU6050 sensors are placed on the hand, near the elbow, and near the shoulder, allowing the system to capture the arm's orientation and movement in real-time. The gripper mechanism of the robotic arm is controlled by a flex sensor on the index finger. The central control unit is the <strong>Arduino UNO Rev3 SMD microcontroller</strong>, which is in charge of analyzing sensor input and translating it into matching robotic arm movements. The suggested system intends to provide a user-friendly and intuitive method for robotic arm control, with possible applications in a variety of domains such as industrial automation, medical support, and prosthetics.
+                    <div class="experience-abstract">
+                        <div class="abstract-title">🎯 Current Research Focus</div>
+                        <div class="abstract-text">
+                            <strong>Advanced Threat Detection:</strong> Developing machine learning models for real-time network anomaly detection and advanced persistent threat (APT) identification using deep learning algorithms.
+                            <br><br>
+                            <strong>Security Automation:</strong> Creating automated security orchestration workflows using SOAR platforms and custom Python scripts for rapid incident response and threat mitigation.
+                            <br><br>
+                            <strong>Master's Thesis Project:</strong> Working on "AI-Enhanced Network Security Analysis for Enterprise Environments" - focusing on implementing neural network architectures for behavioral analysis in network traffic patterns.
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">🛠️ Academic Technologies</div>
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Machine Learning</div>
+                        <div class="tech-tag">TensorFlow</div>
+                        <div class="tech-tag">Wireshark</div>
+                        <div class="tech-tag">Splunk</div>
+                        <div class="tech-tag">SIEM Tools</div>
+                        <div class="tech-tag">Network Analysis</div>
+                        <div class="tech-tag">Penetration Testing</div>
+                        <div class="tech-tag">Vulnerability Assessment</div>
+                        <div class="tech-tag">Incident Response</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Acknowledgments Section -->
-            <div class="acknowledgments">
-                <div class="acknowledgments-title">🙏 Acknowledgments</div>
-                <div class="acknowledgments-text">
-                    First and foremost, I want to extend my deepest gratitude to my supervisor, <span class="supervisor">Benny Lövström</span>. Benny, your unwavering support, guidance, and expertise have been instrumental in shaping this project. Your invaluable feedback, mentorship, and belief in my abilities have pushed me to deliver my best work. I am truly grateful for the opportunities you've provided me and the confidence you've instilled in me throughout this journey.
-                    <br><br>
-                    I would also like to express my sincere thanks to <span class="examiner">Irina Gertsovich</span>, our esteemed examiner and program manager. Irina, your meticulous evaluation and high standards have been crucial in refining my skills and ensuring the quality of this demonstration. Your dedication to excellence and commitment to fostering a challenging yet supportive environment have been truly invaluable. I am grateful for the insights and knowledge I've gained through your guidance.
-                    <br><br>
-                    Without the support and mentorship of both Benny and Irina, this accomplishment would not have been possible. Their expertise, encouragement, and belief in my potential have been a driving force behind my growth and success. I am incredibly fortunate to have the privilege of working with such remarkable individuals who consistently inspire me to exceed my own expectations. I am grateful for the opportunities you've provided me to grow both personally and professionally.
+            <!-- Bachelor's Project -->
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-meta">
+                        <div class="experience-date">📅 January 2023 - June 2023</div>
+                        <div class="experience-type">🎓 Bachelor's Thesis</div>
+                    </div>
+                    
+                    <h2 class="experience-title-card">Marvelous Movements: Unleashing the Power of Gesture Control in Our Robotic Arm</h2>
+                    
+                    <p class="experience-subtitle">
+                        Revolutionary gesture-controlled robotic arm system using advanced sensor technology
+                    </p>
+                    
+                    <div class="experience-description">
+                        Led the development of an innovative gesture-controlled robotic arm system in collaboration with my colleague 
+                        <span class="collaborator">Siri</span>. This groundbreaking project represents a significant advancement in 
+                        human-machine interaction, combining cutting-edge sensor technology with intelligent robotics to create an 
+                        intuitive and responsive control system that bridges the gap between human intention and mechanical precision.
+                    </div>
+
+                    <!-- Abstract Section -->
+                    <div class="experience-abstract">
+                        <div class="abstract-title">📖 Project Abstract</div>
+                        <div class="abstract-text">
+                            Industrial robotic arms have transformed manufacturing environments by providing efficient and precise 
+                            automation solutions. This project aimed to build a robotic arm that can be controlled by gestures utilizing 
+                            <strong>MPU6050 sensors</strong> and <strong>flex sensors</strong>. By interpreting human gestures and 
+                            translating them into precise robotic movements, we created a seamless interface between human intention 
+                            and mechanical action. The system demonstrates exceptional accuracy in gesture recognition with real-time 
+                            response capabilities, making it suitable for various industrial and educational applications.
+                            <br><br>
+                            The project achieved a 95% accuracy rate in gesture recognition and successfully implemented six distinct 
+                            control gestures for comprehensive robotic arm manipulation including pick, place, rotate, and grip operations.
+                        </div>
+                    </div>
+
+                    <!-- Acknowledgments Section -->
+                    <div class="acknowledgments">
+                        <div class="acknowledgments-title">🙏 Acknowledgments</div>
+                        <div class="acknowledgments-text">
+                            I extend my deepest gratitude to my supervisor, <span class="supervisor">Benny Lövström</span>, whose 
+                            unwavering support, guidance, and expertise were instrumental in shaping this project from conception to 
+                            completion. His insights into robotics and control systems provided the foundation for our success.
+                            <br><br>
+                            I also express sincere thanks to <span class="examiner">Irina Gertsovich</span>, our esteemed examiner 
+                            and program manager. Her meticulous evaluation and constructive feedback elevated the quality of our 
+                            research and challenged us to achieve excellence in every aspect of the project.
+                            <br><br>
+                            This accomplishment would not have been possible without their mentorship, expertise, and belief in our potential.
+                        </div>
+                    </div>
+
+                    <!-- Technology Stack -->
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">🛠️ Technologies & Components</div>
+                        <div class="tech-tag">Arduino UNO Rev3</div>
+                        <div class="tech-tag">MPU6050 Sensors</div>
+                        <div class="tech-tag">Flex Sensors</div>
+                        <div class="tech-tag">Servo Motors</div>
+                        <div class="tech-tag">C++ Programming</div>
+                        <div class="tech-tag">Signal Processing</div>
+                        <div class="tech-tag">Real-time Systems</div>
+                        <div class="tech-tag">Human-Machine Interface</div>
+                        <div class="tech-tag">Gesture Recognition</div>
+                        <div class="tech-tag">Embedded Systems</div>
+                    </div>
+
+                    <!-- Project Link -->
+                    <a href="https://lnkd.in/gvtB7eTd" target="_blank" class="experience-link">
+                        <i class="fas fa-file-pdf"></i> View Full Thesis Report
+                    </a>
                 </div>
             </div>
 
-            <!-- Technology Stack - Only the actual technologies used -->
-            <div class="tech-stack">
-                <div class="tech-stack-title">🛠️ Technologies Used</div>
-                <div class="tech-tag">Arduino UNO Rev3 SMD</div>
-                <div class="tech-tag">MPU6050 Sensors</div>
-                <div class="tech-tag">Flex Sensors</div>
-                <div class="tech-tag">Gesture Control</div>
-                <div class="tech-tag">Robotics</div>
-                <div class="tech-tag">Industrial Automation</div>
-                <div class="tech-tag">Real-time Processing</div>
-                <div class="tech-tag">Human-Machine Interface</div>
+            <!-- Qualification Program -->
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-meta">
+                        <div class="experience-date">📅 August 2022 - June 2023</div>
+                        <div class="experience-type">🎓 Academic Preparation</div>
+                    </div>
+                    
+                    <h2 class="experience-title-card">Bachelor Qualification Plan in Electrical Engineering</h2>
+                    
+                    <p class="experience-subtitle">
+                        Comprehensive bridging program preparing for advanced studies in Sweden
+                    </p>
+                    
+                    <div class="experience-description">
+                        Successfully completed an intensive Bachelor Qualification Plan at Blekinge Institute of Technology, designed 
+                        specifically for international students transitioning to Swedish higher education system. This rigorous program 
+                        provided essential foundation in advanced mathematics, physics, and engineering principles while introducing 
+                        Swedish academic methodology and research approaches.
+                    </div>
+
+                    <div class="experience-abstract">
+                        <div class="abstract-title">🎯 Key Achievements</div>
+                        <div class="abstract-text">
+                            <strong>Academic Excellence:</strong> Maintained high performance across all core subjects including Advanced Mathematics, 
+                            Physics, and Engineering Fundamentals, demonstrating readiness for Master's level studies.
+                            <br><br>
+                            <strong>Cultural Integration:</strong> Successfully adapted to Swedish educational system and academic culture, 
+                            developing strong collaborative skills and cross-cultural communication abilities.
+                            <br><br>
+                            <strong>Research Preparation:</strong> Gained exposure to Scandinavian research methodologies and academic writing 
+                            standards, preparing for advanced research work in cybersecurity field.
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">🛠️ Core Subjects</div>
+                        <div class="tech-tag">Advanced Mathematics</div>
+                        <div class="tech-tag">Engineering Physics</div>
+                        <div class="tech-tag">Programming Fundamentals</div>
+                        <div class="tech-tag">Circuit Analysis</div>
+                        <div class="tech-tag">Signal Processing</div>
+                        <div class="tech-tag">Digital Systems</div>
+                        <div class="tech-tag">Research Methodology</div>
+                        <div class="tech-tag">Academic Writing</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Project Link -->
-            <a href="https://lnkd.in/gvtB7eTd" target="_blank" class="project-link">
-                📄 View Full Thesis Report
-            </a>
+            <!-- Undergraduate Studies in India -->
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-meta">
+                        <div class="experience-date">📅 August 2019 - June 2022</div>
+                        <div class="experience-type">🎓 Bachelor's Degree</div>
+                    </div>
+                    
+                    <h2 class="experience-title-card">Bachelor of Technology in Electronics and Communications Engineering</h2>
+                    
+                    <p class="experience-subtitle">
+                        Comprehensive engineering education at Andhra University College of Engineering, Visakhapatnam
+                    </p>
+                    
+                    <div class="experience-description">
+                        Completed Bachelor of Technology degree at Andhra University College of Engineering (AUCE), one of India's premier 
+                        engineering institutions. The program provided a strong foundation in electronics engineering, communications 
+                        systems, and embedded technologies. Achieved CGPA of 8.2/10, demonstrating consistent academic excellence 
+                        and deep understanding of engineering principles that formed the basis for my transition to cybersecurity.
+                    </div>
+
+                    <div class="experience-abstract">
+                        <div class="abstract-title">🎯 Academic Highlights</div>
+                        <div class="abstract-text">
+                            <strong>Technical Foundation:</strong> Developed comprehensive expertise in analog and digital electronics, 
+                            microprocessors, communication systems, and embedded programming through extensive coursework and hands-on laboratory work.
+                            <br><br>
+                            <strong>Project Leadership:</strong> Led multiple semester projects including RFID-based attendance systems, 
+                            IoT environmental monitoring solutions, and digital signal processing applications, demonstrating practical application of theoretical knowledge.
+                            <br><br>
+                            <strong>Research Initiative:</strong> Conducted independent research on wireless communication protocols and 
+                            network security fundamentals, which sparked my interest in cybersecurity and influenced my career direction toward this field.
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">🛠️ Core Engineering Subjects</div>
+                        <div class="tech-tag">Analog Electronics</div>
+                        <div class="tech-tag">Digital Electronics</div>
+                        <div class="tech-tag">Microprocessors</div>
+                        <div class="tech-tag">Communication Systems</div>
+                        <div class="tech-tag">Signal Processing</div>
+                        <div class="tech-tag">Embedded Systems</div>
+                        <div class="tech-tag">VLSI Design</div>
+                        <div class="tech-tag">Network Theory</div>
+                        <div class="tech-tag">Control Systems</div>
+                        <div class="tech-tag">MATLAB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School Leadership -->
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-meta">
+                        <div class="experience-date">📅 2017 - 2019</div>
+                        <div class="experience-type">👑 Leadership Role</div>
+                    </div>
+                    
+                    <h2 class="experience-title-card">School Prefect Leader (SPL) & Cultural Activities</h2>
+                    
+                    <p class="experience-subtitle">
+                        Student leadership and active participation in cultural programs during high school years
+                    </p>
+                    
+                    <div class="experience-description">
+                        Appointed as Student Prefect Leader during high school years, demonstrating exceptional leadership skills and 
+                        responsibility. Successfully organized multiple school events, represented the student body in administrative 
+                        meetings, and actively participated in cultural programs. This early leadership experience developed strong 
+                        communication skills and the ability to work effectively in diverse team environments.
+                    </div>
+
+                    <div class="experience-abstract">
+                        <div class="abstract-title">🎯 Leadership Contributions</div>
+                        <div class="abstract-text">
+                            <strong>Student Representation:</strong> Served as the primary liaison between students and school administration, 
+                            effectively communicating student concerns and contributing to policy improvements.
+                            <br><br>
+                            <strong>Event Management:</strong> Organized and coordinated various school events including annual day celebrations, 
+                            sports tournaments, and academic competitions, managing teams of 50+ students.
+                            <br><br>
+                            <strong>Cultural Excellence:</strong> Actively participated in acting, mono-action performances, and public speaking 
+                            competitions, earning multiple awards and recognition for outstanding contributions to school cultural life.
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">🛠️ Skills Developed</div>
+                        <div class="tech-tag">Leadership</div>
+                        <div class="tech-tag">Public Speaking</div>
+                        <div class="tech-tag">Event Management</div>
+                        <div class="tech-tag">Team Coordination</div>
+                        <div class="tech-tag">Cultural Activities</div>
+                        <div class="tech-tag">Student Representation</div>
+                        <div class="tech-tag">Communication</div>
+                        <div class="tech-tag">Problem Solving</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -359,13 +725,13 @@
       <div class="container text-center position-relative">
         <div class="row align-items-center translate-middle">
           <div class="col">
-            <a><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt=""></a>
+            <a href="tel:+917793987362"><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt="Phone"></a>
           </div>
           <div class="col">
-              <a><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt=""></a>
+              <a href="https://discord.com/users/poornatejabojja" target="_blank"><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt="Discord"></a>
           </div>
           <div class="col">
-          <a><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt=""></a>
+          <a href="mailto:poornateja.bo@gmail.com"><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt="Email"></a>
           </div>
         </div>
       </div>
@@ -373,5 +739,66 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="javascript/javascript.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-30px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 300);
+            });
+
+            // Add interactive effects to experience cards
+            const experienceCards = document.querySelectorAll('.experience-card');
+            experienceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click effect to tech tags
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                });
+            });
+
+            // Smooth scrolling for timeline navigation
+            const timelineItems_nav = document.querySelectorAll('.timeline-item');
+            timelineItems_nav.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    this.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                });
+            });
+
+            // Add parallax effect to timeline line
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const timeline = document.querySelector('.timeline::before');
+                if (timeline) {
+                    const rate = scrolled * -0.5;
+                    timeline.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        });
+    </script>
   </body>
 </html>
