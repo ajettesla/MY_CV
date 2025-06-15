@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -33,6 +35,15 @@
             text-align: center;
             margin-bottom: clamp(2rem, 5vh, 4rem);
             line-height: 1.2;
+            background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         .skill-category {
@@ -43,12 +54,25 @@
             margin-bottom: clamp(1.2rem, 3vh, 2rem);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--category-color, #667eea) 0%, transparent 100%);
         }
         
         .skill-category:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-0.3vh);
+            box-shadow: 0 2vh 4vh rgba(0, 0, 0, 0.2);
         }
         
         .category-header {
@@ -59,52 +83,38 @@
             padding-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
             border-bottom: 2px solid;
             line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        .cybersecurity .category-header {
-            border-color: #dc3545;
-            color: #ff6b6b;
-        }
+        /* Category specific colors */
+        .cybersecurity { --category-color: #dc3545; }
+        .cybersecurity .category-header { border-color: #dc3545; color: #ff6b6b; }
         
-        .networking .category-header {
-            border-color: #0d6efd;
-            color: #4da6ff;
-        }
+        .networking { --category-color: #0d6efd; }
+        .networking .category-header { border-color: #0d6efd; color: #4da6ff; }
         
-        .security .category-header {
-            border-color: #6f42c1;
-            color: #a855f7;
-        }
+        .security { --category-color: #6f42c1; }
+        .security .category-header { border-color: #6f42c1; color: #a855f7; }
         
-        .devops .category-header {
-            border-color: #20c997;
-            color: #06ffa5;
-        }
+        .devops { --category-color: #20c997; }
+        .devops .category-header { border-color: #20c997; color: #06ffa5; }
         
-        .scripting .category-header {
-            border-color: #fd7e14;
-            color: #ffa726;
-        }
+        .scripting { --category-color: #fd7e14; }
+        .scripting .category-header { border-color: #fd7e14; color: #ffa726; }
         
-        .cloud .category-header {
-            border-color: #0dcaf0;
-            color: #22d3ee;
-        }
+        .cloud { --category-color: #0dcaf0; }
+        .cloud .category-header { border-color: #0dcaf0; color: #22d3ee; }
         
-        .linux .category-header {
-            border-color: #6c757d;
-            color: #adb5bd;
-        }
+        .linux { --category-color: #6c757d; }
+        .linux .category-header { border-color: #6c757d; color: #adb5bd; }
         
-        .monitoring .category-header {
-            border-color: #198754;
-            color: #34d399;
-        }
+        .monitoring { --category-color: #198754; }
+        .monitoring .category-header { border-color: #198754; color: #34d399; }
         
-        .version .category-header {
-            border-color: #495057;
-            color: #9ca3af;
-        }
+        .version { --category-color: #495057; }
+        .version .category-header { border-color: #495057; color: #9ca3af; }
         
         .skill-tag {
             display: inline-block;
@@ -118,6 +128,23 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .skill-tag:hover::before {
+            left: 100%;
         }
         
         .skill-tag:hover {
@@ -127,58 +154,68 @@
             transform: scale(1.05);
         }
         
+        /* Category specific hover effects */
         .cybersecurity .skill-tag:hover {
             background: rgba(220, 53, 69, 0.2);
             border-color: #dc3545;
             color: #ff6b6b;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.3);
         }
         
         .networking .skill-tag:hover {
             background: rgba(13, 110, 253, 0.2);
             border-color: #0d6efd;
             color: #4da6ff;
+            box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
         }
         
         .security .skill-tag:hover {
             background: rgba(111, 66, 193, 0.2);
             border-color: #6f42c1;
             color: #a855f7;
+            box-shadow: 0 0 15px rgba(111, 66, 193, 0.3);
         }
         
         .devops .skill-tag:hover {
             background: rgba(32, 201, 151, 0.2);
             border-color: #20c997;
             color: #06ffa5;
+            box-shadow: 0 0 15px rgba(32, 201, 151, 0.3);
         }
         
         .scripting .skill-tag:hover {
             background: rgba(253, 126, 20, 0.2);
             border-color: #fd7e14;
             color: #ffa726;
+            box-shadow: 0 0 15px rgba(253, 126, 20, 0.3);
         }
         
         .cloud .skill-tag:hover {
             background: rgba(13, 202, 240, 0.2);
             border-color: #0dcaf0;
             color: #22d3ee;
+            box-shadow: 0 0 15px rgba(13, 202, 240, 0.3);
         }
         
         .linux .skill-tag:hover {
             background: rgba(108, 117, 125, 0.2);
             border-color: #6c757d;
             color: #adb5bd;
+            box-shadow: 0 0 15px rgba(108, 117, 125, 0.3);
         }
         
         .monitoring .skill-tag:hover {
             background: rgba(25, 135, 84, 0.2);
             border-color: #198754;
             color: #34d399;
+            box-shadow: 0 0 15px rgba(25, 135, 84, 0.3);
         }
         
         .version .skill-tag:hover {
             background: rgba(73, 80, 87, 0.2);
             border-color: #495057;
             color: #9ca3af;
+            box-shadow: 0 0 15px rgba(73, 80, 87, 0.3);
         }
         
         .stats-container {
@@ -192,6 +229,14 @@
             border-radius: clamp(0.6rem, 1.5vw, 1rem);
             padding: clamp(1rem, 3vw, 1.5rem);
             margin-bottom: clamp(1rem, 2vh, 1.5rem);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .stat-number {
@@ -200,6 +245,9 @@
             color: #fff;
             margin-bottom: clamp(0.3rem, 1vh, 0.5rem);
             line-height: 1.2;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .stat-label {
@@ -215,6 +263,86 @@
             padding: 0;
         }
         
+        /* Enhanced navbar styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.6rem 1rem;
+            background-color: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(15px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #4ecdc4;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+        
+        .nav-link:hover {
+            color: #4ecdc4 !important;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.03);
+        }
+        
+        .rounded-image {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover .rounded-image {
+            border-color: #4ecdc4;
+            transform: rotate(10deg);
+        }
+        
+        /* Bottom navigation */
+        .bottom-navbar {
+            background: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        
+        .imageicon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .imageicon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .skill-category {
@@ -225,6 +353,13 @@
             .main-container {
                 margin-left: 3%;
                 margin-right: 3%;
+            }
+            
+            .navbar-collapse {
+                background-color: rgba(33, 37, 41, 0.95);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-top: 0.5rem;
             }
         }
         
@@ -240,7 +375,7 @@
   <body class="bg-dark text-white">
    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="35" height="35" class="rounded-image"></a>
     <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -248,16 +383,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="aboutme.html">About Me</a>
+          <a class="nav-link" href="aboutme.html">
+            <i class="fas fa-user"></i> About Me
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="skill.html">Skills</a>
+          <a class="nav-link active" aria-current="page" href="skill.html">
+            <i class="fas fa-code"></i> Skills
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="projects.html">Projects</a>
+          <a class="nav-link" href="projects.html">
+            <i class="fas fa-laptop-code"></i> Projects
+          </a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="exp.html">Experience</a>
+          <a class="nav-link" href="exp.html">
+            <i class="fas fa-briefcase"></i> Experience
+          </a>
         </li>
       </ul>
     </div>
@@ -303,7 +446,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="skill-category cybersecurity">
-                    <div class="category-header">🛡️ Cybersecurity Tools</div>
+                    <div class="category-header">
+                        <i class="fas fa-shield-alt"></i>
+                        🛡️ Cybersecurity Tools
+                    </div>
                     <div class="skill-tag">Snort</div>
                     <div class="skill-tag">Zeek</div>
                     <div class="skill-tag">Splunk</div>
@@ -320,7 +466,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category networking">
-                    <div class="category-header">🌐 Networking</div>
+                    <div class="category-header">
+                        <i class="fas fa-network-wired"></i>
+                        🌐 Networking
+                    </div>
                     <div class="skill-tag">TCP/UDP</div>
                     <div class="skill-tag">OSPF</div>
                     <div class="skill-tag">EIGRP</div>
@@ -338,7 +487,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category security">
-                    <div class="category-header">🔒 Security Knowledge</div>
+                    <div class="category-header">
+                        <i class="fas fa-lock"></i>
+                        🔒 Security Knowledge
+                    </div>
                     <div class="skill-tag">MITRE ATT&CK</div>
                     <div class="skill-tag">Cyber Kill Chain</div>
                     <div class="skill-tag">Incident Response</div>
@@ -350,7 +502,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category devops">
-                    <div class="category-header">⚙️ DevOps Tools</div>
+                    <div class="category-header">
+                        <i class="fas fa-cogs"></i>
+                        ⚙️ DevOps Tools
+                    </div>
                     <div class="skill-tag">Docker</div>
                     <div class="skill-tag">Terraform</div>
                     <div class="skill-tag">Jenkins</div>
@@ -360,7 +515,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category scripting">
-                    <div class="category-header">💻 Scripting & Programming</div>
+                    <div class="category-header">
+                        <i class="fas fa-terminal"></i>
+                        💻 Scripting & Programming
+                    </div>
                     <div class="skill-tag">Bash</div>
                     <div class="skill-tag">Python</div>
                     <div class="skill-tag">C</div>
@@ -375,7 +533,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category cloud">
-                    <div class="category-header">☁️ Cloud & Infrastructure</div>
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        ☁️ Cloud & Infrastructure
+                    </div>
                     <div class="skill-tag">AWS</div>
                     <div class="skill-tag">OpenStack</div>
                     <div class="skill-tag">Kubernetes</div>
@@ -385,7 +546,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category linux">
-                    <div class="category-header">🐧 Linux Administration</div>
+                    <div class="category-header">
+                        <i class="fab fa-linux"></i>
+                        🐧 Linux Administration
+                    </div>
                     <div class="skill-tag">Services</div>
                     <div class="skill-tag">Networking</div>
                     <div class="skill-tag">System Hardening</div>
@@ -396,7 +560,10 @@
 
             <div class="col-lg-6">
                 <div class="skill-category monitoring">
-                    <div class="category-header">📊 Monitoring</div>
+                    <div class="category-header">
+                        <i class="fas fa-chart-line"></i>
+                        📊 Monitoring
+                    </div>
                     <div class="skill-tag">Prometheus</div>
                     <div class="skill-tag">Grafana</div>
                 </div>
@@ -404,7 +571,10 @@
 
             <div class="col-lg-12">
                 <div class="skill-category version">
-                    <div class="category-header">📝 Version Control</div>
+                    <div class="category-header">
+                        <i class="fab fa-git-alt"></i>
+                        📝 Version Control
+                    </div>
                     <div class="skill-tag">Git</div>
                     <div class="skill-tag">GitHub</div>
                     <div class="skill-tag">GitLab</div>
@@ -419,13 +589,13 @@
       <div class="container text-center position-relative">
         <div class="row align-items-center translate-middle">
           <div class="col">
-            <a><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt=""></a>
+            <a href="tel:+917793987362"><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt="Phone"></a>
           </div>
           <div class="col">
-              <a><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt=""></a>
+              <a href="https://discord.com/users/poornatejabojja" target="_blank"><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt="Discord"></a>
           </div>
           <div class="col">
-          <a><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt=""></a>
+          <a href="mailto:poornateja.bo@gmail.com"><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt="Email"></a>
           </div>
         </div>
       </div>
@@ -433,5 +603,51 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="javascript/javascript.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation to skill categories
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach((category, index) => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    category.style.transition = 'all 0.6s ease';
+                    category.style.opacity = '1';
+                    category.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Add click effect to skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                });
+            });
+
+            // Counter animation for stats
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = parseInt(stat.textContent);
+                let currentNumber = 0;
+                const increment = finalNumber / 50;
+                
+                const counter = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= finalNumber) {
+                        stat.textContent = finalNumber + '+';
+                        clearInterval(counter);
+                    } else {
+                        stat.textContent = Math.floor(currentNumber) + '+';
+                    }
+                }, 50);
+            });
+        });
+    </script>
   </body>
 </html>
