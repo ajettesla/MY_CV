@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#ffffff">
     
     <style>
-        /* Fixed height container - no scrolling */
+        /* Enhanced main container with better background */
         .enhanced-main {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
             height: 100vh;
@@ -52,10 +52,10 @@
             justify-content: center;
         }
         
-        /* Dynamic font sizing using clamp for perfect scaling */
+        /* Improved text sizing */
         .maintext {
             font-family: 'Parisienne', cursive;
-            font-size: clamp(2rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b, #4ecdc4);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -63,7 +63,7 @@
             animation: gradientShift 4s ease-in-out infinite;
             text-shadow: 0 0 1.5vw rgba(102, 126, 234, 0.3);
             line-height: 1.2;
-            margin: 0.5vh 0;
+            margin: 0.3vh 0;
         }
         
         @keyframes gradientShift {
@@ -73,7 +73,7 @@
         
         .subtitle {
             font-family: 'Poppins', sans-serif;
-            font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
             color: #adb5bd;
             margin-top: 2vh;
             font-weight: 300;
@@ -81,44 +81,47 @@
             opacity: 0;
         }
         
+        /* Reduced contact section size */
         .social-container {
             position: fixed;
             bottom: 2vh;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 1.8rem);
-            box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+            box-shadow: 0 0.8vh 2vh rgba(0, 0, 0, 0.3);
             z-index: 1000;
             transition: all 0.3s ease;
+            max-width: 300px;
         }
         
         .social-container:hover {
-            transform: translateX(-50%) translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-50%) translateY(-3px);
+            background: rgba(255, 255, 255, 0.12);
         }
         
         .social-icons {
             display: flex;
-            gap: clamp(0.8rem, 2vw, 1.2rem);
+            gap: clamp(0.6rem, 1.5vw, 0.9rem);
             align-items: center;
+            justify-content: center;
         }
         
         .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: clamp(2.2rem, 4.5vw, 3.2rem);
-            height: clamp(2.2rem, 4.5vw, 3.2rem);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
+            width: clamp(1.8rem, 3.5vw, 2.4rem);
+            height: clamp(1.8rem, 3.5vw, 2.4rem);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid transparent;
             border-radius: 50%;
             color: #fff;
             text-decoration: none;
-            font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -137,7 +140,7 @@
         }
         
         .social-icon:hover {
-            transform: translateY(-0.3vh) scale(1.1);
+            transform: translateY(-2px) scale(1.1);
             color: #fff;
             text-decoration: none;
         }
@@ -148,31 +151,31 @@
         
         /* Specific colors for each social platform */
         .github-icon::before { background: linear-gradient(45deg, #333, #666); }
-        .github-icon:hover { border-color: #666; box-shadow: 0 1vh 2vh rgba(102, 102, 102, 0.3); }
+        .github-icon:hover { border-color: #666; box-shadow: 0 0.5vh 1vh rgba(102, 102, 102, 0.3); }
         
         .linkedin-icon::before { background: linear-gradient(45deg, #0077b5, #00a0dc); }
-        .linkedin-icon:hover { border-color: #0077b5; box-shadow: 0 1vh 2vh rgba(0, 119, 181, 0.3); }
+        .linkedin-icon:hover { border-color: #0077b5; box-shadow: 0 0.5vh 1vh rgba(0, 119, 181, 0.3); }
         
         .email-icon::before { background: linear-gradient(45deg, #ea4335, #fbbc05); }
-        .email-icon:hover { border-color: #ea4335; box-shadow: 0 1vh 2vh rgba(234, 67, 53, 0.3); }
+        .email-icon:hover { border-color: #ea4335; box-shadow: 0 0.5vh 1vh rgba(234, 67, 53, 0.3); }
         
         .discord-icon::before { background: linear-gradient(45deg, #5865f2, #7289da); }
-        .discord-icon:hover { border-color: #5865f2; box-shadow: 0 1vh 2vh rgba(88, 101, 242, 0.3); }
+        .discord-icon:hover { border-color: #5865f2; box-shadow: 0 0.5vh 1vh rgba(88, 101, 242, 0.3); }
         
         .phone-icon::before { background: linear-gradient(45deg, #25d366, #128c7e); }
-        .phone-icon:hover { border-color: #25d366; box-shadow: 0 1vh 2vh rgba(37, 211, 102, 0.3); }
+        .phone-icon:hover { border-color: #25d366; box-shadow: 0 0.5vh 1vh rgba(37, 211, 102, 0.3); }
         
-        /* Profile image with dynamic sizing */
+        /* Profile image improvements */
         .profile-container {
-            margin-bottom: 3vh;
+            margin-bottom: 2vh;
             position: relative;
         }
         
         .profile-image {
-            width: clamp(6rem, 15vw, 8rem);
-            height: clamp(6rem, 15vw, 8rem);
+            width: clamp(5rem, 12vw, 7rem);
+            height: clamp(5rem, 12vw, 7rem);
             border-radius: 50%;
-            border: 0.3vw solid rgba(255, 255, 255, 0.2);
+            border: 0.2vw solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             animation: float 3s ease-in-out infinite;
             object-fit: cover;
@@ -180,7 +183,7 @@
         
         .profile-image:hover {
             border-color: #667eea;
-            box-shadow: 0 0 3vw rgba(102, 126, 234, 0.4);
+            box-shadow: 0 0 2vw rgba(102, 126, 234, 0.4);
             transform: scale(1.05) rotate(5deg);
         }
         
@@ -189,7 +192,6 @@
             50% { transform: translateY(-1vh); }
         }
         
-        /* Container adjustments for better spacing */
         .text-container {
             max-width: 90vw;
             margin: 0 auto;
@@ -198,8 +200,8 @@
         /* Animated cursor effect */
         .cursor {
             display: inline-block;
-            width: 3px;
-            height: 1.2em;
+            width: 2px;
+            height: 1.1em;
             background-color: #4ecdc4;
             margin-left: 5px;
             animation: blink 1s infinite;
@@ -211,27 +213,28 @@
             50% { opacity: 0; }
         }
         
-        /* Navbar enhancements */
+        /* Enhanced navbar */
         .navbar {
             transition: all 0.3s ease;
-            padding: 0.8rem 1rem;
-            background-color: rgba(33, 37, 41, 0.8) !important;
-            backdrop-filter: blur(10px);
+            padding: 0.6rem 1rem;
+            background-color: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(15px);
         }
         
         .navbar.scrolled {
-            padding: 0.5rem 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.4rem 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             background-color: rgba(33, 37, 41, 0.95) !important;
         }
         
         .nav-link {
             position: relative;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem !important;
+            padding: 0.4rem 0.8rem !important;
             display: flex !important;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            font-size: 0.9rem;
         }
         
         .nav-link::after {
@@ -248,7 +251,7 @@
         
         .nav-link:hover::after,
         .nav-link.active::after {
-            width: 80%;
+            width: 70%;
         }
         
         .nav-link:hover {
@@ -258,13 +261,14 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
         
         .navbar-brand:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         
         .rounded-image {
@@ -277,31 +281,44 @@
             transform: rotate(10deg);
         }
         
-        /* Background particles */
-        .particles-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
+        /* Enhanced bubble particles */
+        .bubble {
+            position: absolute;
+            background: linear-gradient(45deg, 
+                rgba(102, 126, 234, 0.1), 
+                rgba(168, 85, 247, 0.1), 
+                rgba(255, 107, 107, 0.1));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: bubbleFloat 8s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
         
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+        @keyframes bubbleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
         }
         
         /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
-            bottom: 15vh;
+            bottom: 12vh;
             left: 50%;
             transform: translateX(-50%);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             animation: bounce 2s infinite;
             opacity: 0;
             transition: opacity 1s ease;
@@ -313,11 +330,11 @@
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-20px) translateX(-50%); }
-            60% { transform: translateY(-10px) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-8px) translateX(-50%); }
         }
         
-        /* Card stack animation for name */
+        /* 3D text effects */
         .textinmain {
             perspective: 1000px;
         }
@@ -328,26 +345,27 @@
         }
         
         .textinmain:hover .maintext:nth-child(1) {
-            transform: translateZ(20px) translateY(-5px);
+            transform: translateZ(15px) translateY(-3px);
         }
         
         .textinmain:hover .maintext:nth-child(2) {
-            transform: translateZ(40px) translateY(-10px);
+            transform: translateZ(30px) translateY(-6px);
         }
         
         .textinmain:hover .maintext:nth-child(3) {
-            transform: translateZ(60px) translateY(-15px);
+            transform: translateZ(45px) translateY(-9px);
         }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .social-container {
                 bottom: 1.5vh;
-                padding: 0.6rem 1.2rem;
+                padding: 0.5rem 1rem;
+                max-width: 280px;
             }
             
             .maintext {
-                font-size: clamp(2.5rem, 12vw, 4rem);
+                font-size: clamp(2rem, 8vw, 3.5rem);
             }
             
             .navbar-collapse {
@@ -360,30 +378,35 @@
         
         @media (max-width: 480px) {
             .social-icons {
-                gap: 0.8rem;
+                gap: 0.6rem;
             }
             
             .social-icon {
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: 0.9rem;
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.8rem;
             }
             
             .profile-image {
-                width: clamp(5rem, 13vw, 7rem);
-                height: clamp(5rem, 13vw, 7rem);
+                width: clamp(4.5rem, 11vw, 6rem);
+                height: clamp(4.5rem, 11vw, 6rem);
+            }
+            
+            .social-container {
+                max-width: 240px;
+                padding: 0.4rem 0.8rem;
             }
         }
     </style>
   </head>
   <body class="bg-dark text-white">
-   <!-- Particle background -->
-   <div class="particles-container" id="particles-container"></div>
+   <!-- Enhanced bubble background -->
+   <div id="bubble-container"></div>
    
    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark" id="main-navbar">
   <div class="container-fluid">
     <a href="photos/myPhoto2.png" class="d-flex align-items-center">
-      <img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image">
+      <img src="photos/myPhoto2.png" alt="Logo" width="35" height="35" class="rounded-image">
     </a>
     <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -392,7 +415,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="aboutme.html">
+          <a class="nav-link" href="aboutme.html">
             <i class="fas fa-user"></i> About Me
           </a>
         </li>
@@ -438,7 +461,7 @@
     </div>
 </div>
 
-<!-- Enhanced Social Media Footer -->
+<!-- Compact Social Media Footer -->
 <div class="social-container">
     <div class="social-icons">
         <a href="https://github.com/ajettesla" target="_blank" class="social-icon github-icon" title="GitHub">
@@ -457,7 +480,7 @@
             <i class="fab fa-discord"></i>
         </a>
         
-        <a href="tel:+917793987362" class="social-icon phone-icon" title="Phone: +91 7793987362">
+        <a href="tel:+917793987362" class="social-icon phone-icon" title="Phone">
             <i class="fas fa-phone"></i>
         </a>
     </div>
@@ -475,7 +498,7 @@
             subtitle.style.opacity = '1';
             
             let i = 0;
-            let typingSpeed = 50; // Adjust typing speed (milliseconds)
+            let typingSpeed = 50;
             
             function typeWriter() {
                 if (i < originalText.length) {
@@ -483,12 +506,10 @@
                     i++;
                     setTimeout(typeWriter, typingSpeed);
                 } else {
-                    // Add blinking cursor at the end
                     const cursor = document.createElement('span');
                     cursor.className = 'cursor';
                     subtitle.appendChild(cursor);
                     
-                    // Show scroll indicator after typing is complete
                     setTimeout(() => {
                         document.getElementById('scroll-indicator').classList.add('visible');
                     }, 1000);
@@ -497,8 +518,8 @@
             
             setTimeout(typeWriter, 1000);
             
-            // Create background particles
-            createParticles();
+            // Create enhanced bubble particles
+            createBubbles();
             
             // Navbar scroll effect
             window.addEventListener('scroll', function() {
@@ -510,35 +531,23 @@
                 }
             });
             
-            // Add hover effect to navigation links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px)';
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // 3D name tilt effect
+            // Enhanced 3D name tilt effect
             const textContainer = document.querySelector('.textinmain');
             textContainer.addEventListener('mousemove', function(e) {
                 const texts = document.querySelectorAll('.maintext');
                 const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left; // x position within the element
-                const y = e.clientY - rect.top; // y position within the element
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateY = (x - centerX) / 20;
-                const rotateX = (centerY - y) / 20;
+                const rotateY = (x - centerX) / 15;
+                const rotateX = (centerY - y) / 15;
                 
                 texts.forEach((text, index) => {
-                    const factor = (index + 1) * 0.5;
-                    text.style.transform = `rotateX(${rotateX * factor}deg) rotateY(${rotateY * factor}deg) translateZ(${(index + 1) * 20}px)`;
+                    const factor = (index + 1) * 0.4;
+                    text.style.transform = `rotateX(${rotateX * factor}deg) rotateY(${rotateY * factor}deg) translateZ(${(index + 1) * 15}px)`;
                 });
             });
             
@@ -550,34 +559,58 @@
             });
         });
         
-        // Create background particles
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random properties
-                const size = Math.random() * 5 + 2;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const opacity = Math.random() * 0.5 + 0.1;
-                const animationDuration = Math.random() * 15 + 10;
-                
-                // Apply styles
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.top = `${posY}%`;
-                particle.style.opacity = opacity;
-                
-                // Add animation
-                particle.style.animation = `float ${animationDuration}s infinite ease-in-out`;
-                
-                container.appendChild(particle);
+        // Enhanced bubble creation
+        function createBubbles() {
+            const container = document.getElementById('bubble-container');
+            if (!container) {
+                const bubbleContainer = document.createElement('div');
+                bubbleContainer.id = 'bubble-container';
+                bubbleContainer.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    z-index: 1;
+                    overflow: hidden;
+                `;
+                document.body.appendChild(bubbleContainer);
             }
+            
+            function createBubble() {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 60 + 20;
+                const posX = Math.random() * window.innerWidth;
+                const animationDuration = Math.random() * 6 + 6;
+                const delay = Math.random() * 4;
+                
+                bubble.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${posX}px;
+                    animation-duration: ${animationDuration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                document.getElementById('bubble-container').appendChild(bubble);
+                
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                }, (animationDuration + delay) * 1000);
+            }
+            
+            // Create initial bubbles
+            for (let i = 0; i < 8; i++) {
+                setTimeout(createBubble, i * 800);
+            }
+            
+            // Continue creating bubbles
+            setInterval(createBubble, 3000);
         }
     </script>
   </body>
