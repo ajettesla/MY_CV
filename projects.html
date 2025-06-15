@@ -3,13 +3,658 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Projects</title>
+    <title>Projects - Poorna Teja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+    <link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <style>
+        .projects-section {
+            font-family: 'Poppins', sans-serif;
+            padding: clamp(2rem, 5vh, 4rem) 0;
+        }
+        
+        .projects-title {
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: clamp(2rem, 5vh, 4rem);
+            line-height: 1.2;
+            background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: clamp(0.8rem, 2vw, 1.2rem);
+            padding: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+        }
+        
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-0.5vh);
+            box-shadow: 0 3vh 6vh rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-title {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 700;
+            color: #4da6ff;
+            margin-bottom: clamp(0.8rem, 2vh, 1.2rem);
+            background: linear-gradient(45deg, #4da6ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-type {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.6rem, 2vw, 1rem);
+            border-radius: clamp(0.6rem, 1.5vw, 0.8rem);
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            font-weight: 500;
+            margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+            display: inline-block;
+        }
+        
+        .project-status {
+            background: rgba(32, 201, 151, 0.2);
+            color: #06ffa5;
+            padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.6rem, 2vw, 1rem);
+            border-radius: clamp(0.6rem, 1.5vw, 0.8rem);
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            font-weight: 500;
+            margin-left: 0.5rem;
+            display: inline-block;
+        }
+        
+        .project-description {
+            color: #e9ecef;
+            line-height: 1.7;
+            margin-bottom: clamp(1.5rem, 3vh, 2rem);
+            text-align: justify;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+        }
+        
+        .project-tech {
+            margin-bottom: clamp(1.5rem, 3vh, 2rem);
+        }
+        
+        .tech-title {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: clamp(0.8rem, 2vh, 1.2rem);
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.2);
+            color: #4da6ff;
+            padding: clamp(0.3rem, 1.2vw, 0.5rem) clamp(0.7rem, 2vw, 1rem);
+            border-radius: clamp(0.6rem, 2vw, 1rem);
+            margin: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem) clamp(0.3rem, 1vw, 0.5rem) 0;
+            font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+            font-weight: 500;
+            border: 1px solid rgba(77, 166, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: #4da6ff;
+            transform: scale(1.05);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1.2rem);
+            flex-wrap: wrap;
+            margin-top: clamp(1.5rem, 3vh, 2rem);
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: clamp(0.7rem, 2vw, 1rem) clamp(1.2rem, 3vw, 2rem);
+            border-radius: clamp(1.2rem, 3vw, 2rem);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: clamp(0.85rem, 2.2vw, 1rem);
+        }
+        
+        .project-link:hover {
+            color: white;
+            transform: translateY(-0.2vh);
+            box-shadow: 0 1vh 2vh rgba(102, 126, 234, 0.3);
+        }
+        
+        .project-link.secondary {
+            background: linear-gradient(45deg, #20c997, #06ffa5);
+        }
+        
+        .project-link.secondary:hover {
+            box-shadow: 0 1vh 2vh rgba(32, 201, 151, 0.3);
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+            flex-wrap: wrap;
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+        
+        .project-date {
+            color: #6c757d;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 500;
+        }
+        
+        .main-container {
+            margin-top: 2vh;
+            margin-left: clamp(2%, 5vw, 10%);
+            margin-right: clamp(2%, 5vw, 10%);
+            margin-bottom: clamp(2vh, 5vh, 5%);
+            padding: 0;
+        }
+        
+        /* Enhanced navbar styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.6rem 1rem;
+            background-color: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(15px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #4ecdc4;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+        
+        .nav-link:hover {
+            color: #4ecdc4 !important;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.03);
+        }
+        
+        .rounded-image {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover .rounded-image {
+            border-color: #4ecdc4;
+            transform: rotate(10deg);
+        }
+        
+        /* Bottom navigation */
+        .bottom-navbar {
+            background: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        
+        .imageicon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .imageicon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project-card {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .main-container {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+            
+            .navbar-collapse {
+                background-color: rgba(33, 37, 41, 0.95);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.7rem;
+                margin: 0.3rem 0.4rem 0.3rem 0;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+    </style>
   </head>
-  <body bg-dark text-white>
-    <h1>Hello, world!</h1>
+  <body class="bg-dark text-white">
+   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="35" height="35" class="rounded-image"></a>
+    <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="aboutme.html">
+            <i class="fas fa-user"></i> About Me
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="skill.html">
+            <i class="fas fa-code"></i> Skills
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="projects.html">
+            <i class="fas fa-laptop-code"></i> Projects
+          </a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="exp.html">
+            <i class="fas fa-briefcase"></i> Experience
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container main-container">
+    <div class="projects-section">
+        <!-- Page Title -->
+        <h1 class="projects-title">My Projects</h1>
+        
+        <!-- Project 1: Cybersecurity Dashboard -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 December 2024</div>
+                <div>
+                    <div class="project-type">🛡️ Cybersecurity</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-shield-alt"></i>
+                Advanced Security Monitoring Dashboard
+            </h2>
+            
+            <div class="project-description">
+                Developed a comprehensive cybersecurity monitoring dashboard that provides real-time threat detection and analysis. 
+                The system integrates multiple security tools including Splunk, Snort, and custom Python scripts to create a unified 
+                view of network security status. Features include automated incident response, threat intelligence correlation, and 
+                interactive visualizations for security analysts.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Splunk</div>
+                <div class="tech-tag">React</div>
+                <div class="tech-tag">D3.js</div>
+                <div class="tech-tag">Docker</div>
+                <div class="tech-tag">Elasticsearch</div>
+                <div class="tech-tag">MITRE ATT&CK</div>
+                <div class="tech-tag">REST APIs</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 2: Network Security Analyzer -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 October 2024</div>
+                <div>
+                    <div class="project-type">🌐 Networking</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-network-wired"></i>
+                Intelligent Network Traffic Analyzer
+            </h2>
+            
+            <div class="project-description">
+                Built an intelligent network traffic analysis tool that uses machine learning algorithms to detect anomalous 
+                network behavior and potential security threats. The system processes real-time network packets, applies 
+                statistical analysis, and generates detailed reports on network performance and security indicators.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Wireshark</div>
+                <div class="tech-tag">Scapy</div>
+                <div class="tech-tag">Machine Learning</div>
+                <div class="tech-tag">pandas</div>
+                <div class="tech-tag">Matplotlib</div>
+                <div class="tech-tag">TCP/IP</div>
+                <div class="tech-tag">Nmap</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-file-pdf"></i> Documentation
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 3: Automated Vulnerability Scanner -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 August 2024</div>
+                <div>
+                    <div class="project-type">🔒 Security Testing</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-bug"></i>
+                Automated Web Application Vulnerability Scanner
+            </h2>
+            
+            <div class="project-description">
+                Created an automated vulnerability scanning tool that identifies common web application security flaws following 
+                OWASP guidelines. The scanner performs comprehensive security assessments including SQL injection detection, 
+                XSS vulnerability testing, and authentication bypass attempts. Results are presented in detailed reports with 
+                remediation recommendations.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Selenium</div>
+                <div class="tech-tag">BeautifulSoup</div>
+                <div class="tech-tag">OWASP ZAP</div>
+                <div class="tech-tag">Burp Suite</div>
+                <div class="tech-tag">SQLMap</div>
+                <div class="tech-tag">Bash</div>
+                <div class="tech-tag">JSON</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-play"></i> Demo Video
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 4: DevOps Security Pipeline -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 June 2024</div>
+                <div>
+                    <div class="project-type">⚙️ DevSecOps</div>
+                    <div class="project-status">🚧 In Progress</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-cogs"></i>
+                Secure CI/CD Pipeline with Automated Security Testing
+            </h2>
+            
+            <div class="project-description">
+                Designing and implementing a secure DevOps pipeline that integrates security testing at every stage of the 
+                development lifecycle. The pipeline includes automated code scanning, dependency vulnerability checks, 
+                container security analysis, and infrastructure security validation using Infrastructure as Code (IaC) principles.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Jenkins</div>
+                <div class="tech-tag">Docker</div>
+                <div class="tech-tag">Kubernetes</div>
+                <div class="tech-tag">Terraform</div>
+                <div class="tech-tag">Ansible</div>
+                <div class="tech-tag">SonarQube</div>
+                <div class="tech-tag">Trivy</div>
+                <div class="tech-tag">AWS</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-file-alt"></i> Progress Report
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 5: IoT Security Framework -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 March 2024</div>
+                <div>
+                    <div class="project-type">🌐 IoT Security</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-wifi"></i>
+                IoT Device Security Assessment Framework
+            </h2>
+            
+            <div class="project-description">
+                Developed a comprehensive security assessment framework specifically designed for IoT devices and networks. 
+                The framework includes automated discovery of IoT devices, security configuration analysis, firmware 
+                vulnerability assessment, and network communication monitoring. Provides actionable security recommendations 
+                for IoT deployments.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Raspberry Pi</div>
+                <div class="tech-tag">MQTT</div>
+                <div class="tech-tag">WiFi Security</div>
+                <div class="tech-tag">Bluetooth</div>
+                <div class="tech-tag">Zigbee</div>
+                <div class="tech-tag">OpenWRT</div>
+                <div class="tech-tag">Binwalk</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-trophy"></i> Awards
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar bottom bg-dark border-bottom border-body bottom-navbar">
+      <div class="container text-center position-relative">
+        <div class="row align-items-center translate-middle">
+          <div class="col">
+            <a href="tel:+917793987362"><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt="Phone"></a>
+          </div>
+          <div class="col">
+              <a href="https://discord.com/users/poornatejabojja" target="_blank"><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt="Discord"></a>
+          </div>
+          <div class="col">
+          <a href="mailto:poornateja.bo@gmail.com"><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt="Email"></a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="javascript/javascript.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Add click effect to tech tags
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                });
+            });
+
+            // Add hover effect to project cards
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Smooth scroll for project links
+            const projectLinks = document.querySelectorAll('.project-link');
+            projectLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        // Add any demo or modal functionality here
+                        console.log('Demo link clicked for:', this.closest('.project-card').querySelector('.project-title').textContent.trim());
+                    }
+                });
+            });
+        });
+    </script>
   </body>
 </html>
