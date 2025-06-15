@@ -287,6 +287,15 @@
             opacity: 1;
             transform: scale(1.1);
         }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -366,10 +375,483 @@
         <!-- Page Title -->
         <h1 class="projects-title">My Projects</h1>
         
-        <!-- Project 1: Cybersecurity Dashboard -->
+        <!-- Project 1: Python Load Balancer -->
         <div class="project-card">
             <div class="project-meta">
-                <div class="project-date">📅 December 2024</div>
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">⚖️ Load Balancing</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-balance-scale"></i>
+                Python Load Balancer with Load Sensitivity & Weighted Probability 🎯
+            </h2>
+            
+            <div class="project-description">
+                Implemented a dynamic load balancer in Python that intelligently selects backend servers based on their load sensitivity and weight-based probability. This load balancer ensures efficient resource utilization and optimal performance by monitoring backend server stress and automatically diverting traffic to less loaded servers.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Socket Programming</div>
+                <div class="tech-tag">Threading</div>
+                <div class="tech-tag">Load Balancing Algorithms</div>
+                <div class="tech-tag">Dynamic Routing</div>
+                <div class="tech-tag">Performance Monitoring</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/loadbalancer_in_python" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Post
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 2: C++ Web Server -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🖥️ Web Server</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-server"></i>
+                High-Performance C++ Web Server (Fork & Thread Versions)
+            </h2>
+            
+            <img src="https://media.licdn.com/dms/image/v2/D4D22AQHpJtFtyJKSXg/feedshare-shrink_800/feedshare-shrink_800/0/1719841172724?e=1752710400&v=beta&t=Ur2CwZ_VqDvCUNc29OBBokg9JhejZSkTRdtTkPH5blM" alt="Web Server Benchmark" class="project-image">
+            
+            <div class="project-description">
+                Developed a high-performance web server in C++ with both fork-based and thread-based implementations. The server handles concurrent connections efficiently and includes comprehensive benchmark testing to compare performance between different concurrency models. Achieved excellent performance metrics as demonstrated in the benchmark results.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">C++</div>
+                <div class="tech-tag">Socket Programming</div>
+                <div class="tech-tag">Multi-threading</div>
+                <div class="tech-tag">Process Forking</div>
+                <div class="tech-tag">HTTP Protocol</div>
+                <div class="tech-tag">Performance Testing</div>
+                <div class="tech-tag">Concurrent Programming</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/webserver" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fas fa-chart-bar"></i> Benchmark Results
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 3: Multi-Chat Application -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">💬 Network Application</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-comments"></i>
+                Multi-User Group Chat Application
+            </h2>
+            
+            <div class="project-description">
+                Built a real-time group chat application where users can join groups with their names and communicate with other group members. The application supports multiple concurrent users and groups, with real-time message broadcasting and user management features. Implemented using socket programming in C++.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">C++</div>
+                <div class="tech-tag">Socket Programming</div>
+                <div class="tech-tag">Unix Programming</div>
+                <div class="tech-tag">Multi-threading</div>
+                <div class="tech-tag">Real-time Communication</div>
+                <div class="tech-tag">Group Management</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/chatapplication" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/posts/poornatejabojja_cplusplus-socketprogramming-unixprogramming-ugcPost-7212781658045911040-yJTn" target="_blank" class="project-link secondary">
+                    <i class="fas fa-play"></i> Demo Video
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 4: OpenStack NSO Project -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">☁️ Cloud Infrastructure</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-cloud"></i>
+                OpenStack Network Service Orchestration (NSO) Project
+            </h2>
+            
+            <div class="project-description">
+                Implemented automation with Ansible and OpenStack using a third-party cloud provider. Deployed a cloud environment with three backend servers, two load balancers, and automated server launching. Configured KeepAlived, Nginx, HAProxy, Flask, and SNMP3 daemon. Created an operator file that monitors backend server changes and automatically installs/removes servers based on requirements, including post-launch configuration and cleanup scripts.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">OpenStack</div>
+                <div class="tech-tag">Ansible</div>
+                <div class="tech-tag">KeepAlived</div>
+                <div class="tech-tag">Nginx</div>
+                <div class="tech-tag">HAProxy</div>
+                <div class="tech-tag">Flask</div>
+                <div class="tech-tag">SNMP3</div>
+                <div class="tech-tag">Bash Scripting</div>
+                <div class="tech-tag">Cloud Automation</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/openstack_NSO_project" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/posts/poornatejabojja_nso-project-activity-7232681206251716610-q6BR" target="_blank" class="project-link secondary">
+                    <i class="fas fa-file-pdf"></i> Project PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 5: AWS Cloud Infrastructure -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">☁️ AWS Cloud</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fab fa-aws"></i>
+                AWS Auto-Scaling Web Infrastructure with Load Balancing
+            </h2>
+            
+            <div class="project-description">
+                Manually launched and configured a comprehensive web server setup with Application Load Balancer and backend servers in AWS. Implemented Auto Scaling Groups with dynamic scaling based on server load. Set up SSL certificates for the website, assigned domain names with location-based routing, and configured load balancing with advanced AWS features for high availability and performance optimization.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">AWS</div>
+                <div class="tech-tag">Application Load Balancer</div>
+                <div class="tech-tag">Auto Scaling Groups</div>
+                <div class="tech-tag">SSL Certificates</div>
+                <div class="tech-tag">Route 53</div>
+                <div class="tech-tag">Dynamic Scaling</div>
+                <div class="tech-tag">Location-based Routing</div>
+                <div class="tech-tag">High Availability</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://www.linkedin.com/posts/poornatejabojja_cloud-project-activity-7248239489460948992-NJEG" target="_blank" class="project-link">
+                    <i class="fas fa-file-pdf"></i> Implementation Guide
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Post
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 6: VPN Implementation -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🔒 Network Security</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-shield-alt"></i>
+                Secure VPN Implementation with IPSec and StrongSwan
+            </h2>
+            
+            <div class="project-description">
+                Implemented a secure VPN between two Linux servers using IPSec and StrongSwan. The project includes real-time traffic encryption and decryption with key management, data viewing capabilities, and both PSK (Pre-Shared Key) and certificate-based authentication methods. Demonstrates comprehensive understanding of VPN protocols and security implementations.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Linux</div>
+                <div class="tech-tag">IPSec</div>
+                <div class="tech-tag">StrongSwan</div>
+                <div class="tech-tag">VPN Protocols</div>
+                <div class="tech-tag">Certificate Management</div>
+                <div class="tech-tag">PSK Authentication</div>
+                <div class="tech-tag">Network Security</div>
+                <div class="tech-tag">Encryption</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://www.linkedin.com/posts/poornatejabojja_certificates-and-vpn-activity-7220344676468346880-5D8D" target="_blank" class="project-link">
+                    <i class="fas fa-file-pdf"></i> Project Documentation
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Post
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 7: Intrusion Detection with Snort -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🛡️ Intrusion Detection</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-search"></i>
+                Brute Force & DoS Attack Detection with Snort Rules
+            </h2>
+            
+            <div class="project-description">
+                Developed comprehensive Snort rules to detect brute force attacks and Denial of Service (DoS) attacks. The project includes custom rule creation, traffic analysis, and real-time attack detection capabilities. Implemented various detection patterns and thresholds to minimize false positives while maintaining high detection accuracy.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Snort</div>
+                <div class="tech-tag">Network Security</div>
+                <div class="tech-tag">Intrusion Detection</div>
+                <div class="tech-tag">Rule Writing</div>
+                <div class="tech-tag">Traffic Analysis</div>
+                <div class="tech-tag">Attack Detection</div>
+                <div class="tech-tag">Security Monitoring</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://www.overleaf.com/4231997621kwznrrdwjtnh#1fa9a8" target="_blank" class="project-link">
+                    <i class="fas fa-file-alt"></i> Project Document
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 8: TCP Server & Client -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🌐 Network Programming</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-network-wired"></i>
+                TCP Server & Client Implementation
+            </h2>
+            
+            <div class="project-description">
+                Built robust TCP server and client applications using socket programming in C and C++. The implementation includes connection handling, data transmission, error handling, and proper socket management. Demonstrates fundamental network programming concepts and reliable communication protocols.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">C</div>
+                <div class="tech-tag">C++</div>
+                <div class="tech-tag">Socket Programming</div>
+                <div class="tech-tag">TCP Protocol</div>
+                <div class="tech-tag">Network Programming</div>
+                <div class="tech-tag">Client-Server Architecture</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/TCPClientAndServer" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 9: UDP Server & Client -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🌐 Network Programming</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-broadcast-tower"></i>
+                UDP Server & Client Implementation
+            </h2>
+            
+            <div class="project-description">
+                Developed UDP server and client applications using socket programming in C and C++. The implementation showcases connectionless communication, datagram handling, and the differences between UDP and TCP protocols. Includes proper error handling and efficient data transmission mechanisms.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">C</div>
+                <div class="tech-tag">C++</div>
+                <div class="tech-tag">Socket Programming</div>
+                <div class="tech-tag">UDP Protocol</div>
+                <div class="tech-tag">Datagram Communication</div>
+                <div class="tech-tag">Network Programming</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/UDPServerAndClient" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 10: Restaurant Capacity Analysis -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">📊 Data Analysis</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-chart-line"></i>
+                Restaurant Capacity Analysis with Queueing Theory
+            </h2>
+            
+            <div class="project-description">
+                Applied queueing theory to analyze and optimize restaurant operations with varying customer group sizes. Used an M/G/K/1000 queueing model to simulate customer arrivals (Poisson process) and service times that vary inversely with group size. Determined optimal number of chefs needed for high service efficiency and customer satisfaction through statistical analysis and simulation.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Queueing Theory</div>
+                <div class="tech-tag">Statistical Analysis</div>
+                <div class="tech-tag">Simulation Modeling</div>
+                <div class="tech-tag">Poisson Process</div>
+                <div class="tech-tag">Performance Optimization</div>
+                <div class="tech-tag">Data Analysis</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla/Restaurant_Capacity_Analysis" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Post
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 11: Terraform Infrastructure -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">🏗️ Infrastructure as Code</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-layer-group"></i>
+                Terraform AWS Infrastructure Deployment
+            </h2>
+            
+            <div class="project-description">
+                Developed comprehensive Terraform configurations to deploy and manage AWS infrastructure. Automated the setup of networks, security groups, load balancers, and server instances using Infrastructure as Code principles. This project extends the manual AWS deployment by providing version-controlled, repeatable infrastructure provisioning.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Terraform</div>
+                <div class="tech-tag">AWS</div>
+                <div class="tech-tag">Infrastructure as Code</div>
+                <div class="tech-tag">Version Control</div>
+                <div class="tech-tag">Automation</div>
+                <div class="tech-tag">Cloud Infrastructure</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 12: Kubernetes Guide -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
+                <div>
+                    <div class="project-type">📚 Documentation</div>
+                    <div class="project-status">✅ Completed</div>
+                </div>
+            </div>
+            
+            <h2 class="project-title">
+                <i class="fas fa-book"></i>
+                Comprehensive Kubernetes Guide & Documentation
+            </h2>
+            
+            <div class="project-description">
+                Created an extensive guide exploring Kubernetes capabilities and features. The documentation covers various Kubernetes options, configurations, and best practices. Includes hands-on examples, troubleshooting tips, and practical implementation scenarios to help others learn and implement Kubernetes effectively.
+            </div>
+
+            <div class="project-tech">
+                <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">Kubernetes</div>
+                <div class="tech-tag">Container Orchestration</div>
+                <div class="tech-tag">Technical Writing</div>
+                <div class="tech-tag">Documentation</div>
+                <div class="tech-tag">Best Practices</div>
+                <div class="tech-tag">DevOps</div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://docs.google.com/document/d/1sW8zHlBsp08QBc_TWouSPIadFeL9xfTDrACq3P8GDqE/edit?usp=sharing" target="_blank" class="project-link">
+                    <i class="fas fa-file-alt"></i> View Guide
+                </a>
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 13: Cybersecurity Internship Tasks -->
+        <div class="project-card">
+            <div class="project-meta">
+                <div class="project-date">📅 2024</div>
                 <div>
                     <div class="project-type">🛡️ Cybersecurity</div>
                     <div class="project-status">✅ Completed</div>
@@ -377,209 +859,72 @@
             </div>
             
             <h2 class="project-title">
-                <i class="fas fa-shield-alt"></i>
-                Advanced Security Monitoring Dashboard
+                <i class="fas fa-tasks"></i>
+                Cybersecurity Internship Phase 1 - 10 Security Tasks
             </h2>
             
             <div class="project-description">
-                Developed a comprehensive cybersecurity monitoring dashboard that provides real-time threat detection and analysis. 
-                The system integrates multiple security tools including Splunk, Snort, and custom Python scripts to create a unified 
-                view of network security status. Features include automated incident response, threat intelligence correlation, and 
-                interactive visualizations for security analysts.
+                Completed comprehensive cybersecurity internship tasks focusing on system defense and security analysis. Tasks included Splunk installation and configuration, log collection setup with Sysmon and Universal Forwarder, data analysis techniques, device detection with query languages, Wireshark data analysis, and beacon traffic detection using Zeek scripts. Each task demonstrates practical cybersecurity skills and security tool proficiency.
             </div>
 
             <div class="project-tech">
                 <div class="tech-title">🛠️ Technologies Used</div>
-                <div class="tech-tag">Python</div>
                 <div class="tech-tag">Splunk</div>
-                <div class="tech-tag">React</div>
-                <div class="tech-tag">D3.js</div>
-                <div class="tech-tag">Docker</div>
-                <div class="tech-tag">Elasticsearch</div>
-                <div class="tech-tag">MITRE ATT&CK</div>
-                <div class="tech-tag">REST APIs</div>
-            </div>
-
-            <div class="project-links">
-                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="#" class="project-link secondary">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 2: Network Security Analyzer -->
-        <div class="project-card">
-            <div class="project-meta">
-                <div class="project-date">📅 October 2024</div>
-                <div>
-                    <div class="project-type">🌐 Networking</div>
-                    <div class="project-status">✅ Completed</div>
-                </div>
-            </div>
-            
-            <h2 class="project-title">
-                <i class="fas fa-network-wired"></i>
-                Intelligent Network Traffic Analyzer
-            </h2>
-            
-            <div class="project-description">
-                Built an intelligent network traffic analysis tool that uses machine learning algorithms to detect anomalous 
-                network behavior and potential security threats. The system processes real-time network packets, applies 
-                statistical analysis, and generates detailed reports on network performance and security indicators.
-            </div>
-
-            <div class="project-tech">
-                <div class="tech-title">🛠️ Technologies Used</div>
-                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Sysmon</div>
+                <div class="tech-tag">Universal Forwarder</div>
                 <div class="tech-tag">Wireshark</div>
-                <div class="tech-tag">Scapy</div>
-                <div class="tech-tag">Machine Learning</div>
-                <div class="tech-tag">pandas</div>
-                <div class="tech-tag">Matplotlib</div>
-                <div class="tech-tag">TCP/IP</div>
-                <div class="tech-tag">Nmap</div>
+                <div class="tech-tag">Zeek</div>
+                <div class="tech-tag">Query Languages</div>
+                <div class="tech-tag">Log Analysis</div>
+                <div class="tech-tag">Network Security</div>
             </div>
 
             <div class="project-links">
-                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i> View Code
+                <a href="https://github.com/ajettesla/cyber-intern-phase-1" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> View Tasks
                 </a>
-                <a href="#" class="project-link secondary">
-                    <i class="fas fa-file-pdf"></i> Documentation
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
                 </a>
             </div>
         </div>
 
-        <!-- Project 3: Automated Vulnerability Scanner -->
+        <!-- Miscellaneous Projects Section -->
         <div class="project-card">
             <div class="project-meta">
-                <div class="project-date">📅 August 2024</div>
+                <div class="project-date">📅 Ongoing</div>
                 <div>
-                    <div class="project-type">🔒 Security Testing</div>
-                    <div class="project-status">✅ Completed</div>
+                    <div class="project-type">🛠️ Miscellaneous</div>
+                    <div class="project-status">✅ Various</div>
                 </div>
             </div>
             
             <h2 class="project-title">
-                <i class="fas fa-bug"></i>
-                Automated Web Application Vulnerability Scanner
+                <i class="fas fa-puzzle-piece"></i>
+                Miscellaneous Projects & Network Simulations
             </h2>
             
             <div class="project-description">
-                Created an automated vulnerability scanning tool that identifies common web application security flaws following 
-                OWASP guidelines. The scanner performs comprehensive security assessments including SQL injection detection, 
-                XSS vulnerability testing, and authentication bypass attempts. Results are presented in detailed reports with 
-                remediation recommendations.
+                Collection of various projects including network simulations in GNS3 and Cisco Packet Tracer featuring VPN implementations, GRE tunnels, and other networking configurations. Also includes Python programming projects like games and utilities available on GitHub. These projects demonstrate continuous learning and practical application of networking and programming concepts.
             </div>
 
             <div class="project-tech">
                 <div class="tech-title">🛠️ Technologies Used</div>
+                <div class="tech-tag">GNS3</div>
+                <div class="tech-tag">Cisco Packet Tracer</div>
+                <div class="tech-tag">VPN</div>
+                <div class="tech-tag">GRE Tunnels</div>
                 <div class="tech-tag">Python</div>
-                <div class="tech-tag">Selenium</div>
-                <div class="tech-tag">BeautifulSoup</div>
-                <div class="tech-tag">OWASP ZAP</div>
-                <div class="tech-tag">Burp Suite</div>
-                <div class="tech-tag">SQLMap</div>
-                <div class="tech-tag">Bash</div>
-                <div class="tech-tag">JSON</div>
+                <div class="tech-tag">Game Development</div>
+                <div class="tech-tag">Network Simulation</div>
             </div>
 
             <div class="project-links">
                 <a href="https://github.com/ajettesla" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i> View Code
+                    <i class="fab fa-github"></i> GitHub Profile
                 </a>
-                <a href="#" class="project-link secondary">
-                    <i class="fas fa-play"></i> Demo Video
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 4: DevOps Security Pipeline -->
-        <div class="project-card">
-            <div class="project-meta">
-                <div class="project-date">📅 June 2024</div>
-                <div>
-                    <div class="project-type">⚙️ DevSecOps</div>
-                    <div class="project-status">🚧 In Progress</div>
-                </div>
-            </div>
-            
-            <h2 class="project-title">
-                <i class="fas fa-cogs"></i>
-                Secure CI/CD Pipeline with Automated Security Testing
-            </h2>
-            
-            <div class="project-description">
-                Designing and implementing a secure DevOps pipeline that integrates security testing at every stage of the 
-                development lifecycle. The pipeline includes automated code scanning, dependency vulnerability checks, 
-                container security analysis, and infrastructure security validation using Infrastructure as Code (IaC) principles.
-            </div>
-
-            <div class="project-tech">
-                <div class="tech-title">🛠️ Technologies Used</div>
-                <div class="tech-tag">Jenkins</div>
-                <div class="tech-tag">Docker</div>
-                <div class="tech-tag">Kubernetes</div>
-                <div class="tech-tag">Terraform</div>
-                <div class="tech-tag">Ansible</div>
-                <div class="tech-tag">SonarQube</div>
-                <div class="tech-tag">Trivy</div>
-                <div class="tech-tag">AWS</div>
-            </div>
-
-            <div class="project-links">
-                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="#" class="project-link secondary">
-                    <i class="fas fa-file-alt"></i> Progress Report
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 5: IoT Security Framework -->
-        <div class="project-card">
-            <div class="project-meta">
-                <div class="project-date">📅 March 2024</div>
-                <div>
-                    <div class="project-type">🌐 IoT Security</div>
-                    <div class="project-status">✅ Completed</div>
-                </div>
-            </div>
-            
-            <h2 class="project-title">
-                <i class="fas fa-wifi"></i>
-                IoT Device Security Assessment Framework
-            </h2>
-            
-            <div class="project-description">
-                Developed a comprehensive security assessment framework specifically designed for IoT devices and networks. 
-                The framework includes automated discovery of IoT devices, security configuration analysis, firmware 
-                vulnerability assessment, and network communication monitoring. Provides actionable security recommendations 
-                for IoT deployments.
-            </div>
-
-            <div class="project-tech">
-                <div class="tech-title">🛠️ Technologies Used</div>
-                <div class="tech-tag">Python</div>
-                <div class="tech-tag">Raspberry Pi</div>
-                <div class="tech-tag">MQTT</div>
-                <div class="tech-tag">WiFi Security</div>
-                <div class="tech-tag">Bluetooth</div>
-                <div class="tech-tag">Zigbee</div>
-                <div class="tech-tag">OpenWRT</div>
-                <div class="tech-tag">Binwalk</div>
-            </div>
-
-            <div class="project-links">
-                <a href="https://github.com/ajettesla" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="#" class="project-link secondary">
-                    <i class="fas fa-trophy"></i> Awards
+                <a href="https://www.linkedin.com/in/poornatejabojja/" target="_blank" class="project-link secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Posts
                 </a>
             </div>
         </div>
@@ -647,9 +992,13 @@
             const projectLinks = document.querySelectorAll('.project-link');
             projectLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
+                    // Open external links in new tab
+                    if (this.getAttribute('target') === '_blank') {
+                        return; // Let the browser handle it normally
+                    }
+                    
                     if (this.getAttribute('href') === '#') {
                         e.preventDefault();
-                        // Add any demo or modal functionality here
                         console.log('Demo link clicked for:', this.closest('.project-card').querySelector('.project-title').textContent.trim());
                     }
                 });
