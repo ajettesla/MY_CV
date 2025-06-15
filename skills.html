@@ -1,458 +1,426 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Skills - Ajet Tesla</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skills - Ajet Tesla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+    <link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     
     <style>
-        body {
+        .skill-section {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            padding: 50px 0;
         }
         
-        .navbar {
-            background: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(10px);
-        }
-        
-        .skills-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            margin-top: 100px;
-            padding: 40px;
-        }
-        
-        .section-title {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            font-size: 3rem;
-            margin-bottom: 30px;
+        .skill-title {
+            font-family: 'Parisienne', cursive;
+            font-size: 400%;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 50px;
         }
         
         .skill-category {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(240, 147, 251, 0.3);
-            transform: translateY(0);
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(240, 147, 251, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
         
-        .skill-category.cybersecurity {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        .category-header {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
         }
         
-        .skill-category.networking {
-            background: linear-gradient(135deg, #4834d4 0%, #686de0 100%);
+        .cybersecurity .category-header {
+            border-color: #dc3545;
+            color: #ff6b6b;
         }
         
-        .skill-category.security {
-            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+        .networking .category-header {
+            border-color: #0d6efd;
+            color: #4da6ff;
         }
         
-        .skill-category.devops {
-            background: linear-gradient(135deg, #06ffa5 0%, #00d2ff 100%);
+        .security .category-header {
+            border-color: #6f42c1;
+            color: #a855f7;
         }
         
-        .skill-category.scripting {
-            background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%);
+        .devops .category-header {
+            border-color: #20c997;
+            color: #06ffa5;
         }
         
-        .skill-category.cloud {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            color: #333;
+        .scripting .category-header {
+            border-color: #fd7e14;
+            color: #ffa726;
         }
         
-        .skill-category.linux {
-            background: linear-gradient(135deg, #130f40 0%, #000000 100%);
+        .cloud .category-header {
+            border-color: #0dcaf0;
+            color: #22d3ee;
         }
         
-        .skill-category.monitoring {
-            background: linear-gradient(135deg, #7f53ac 0%, #647dee 100%);
+        .linux .category-header {
+            border-color: #6c757d;
+            color: #adb5bd;
         }
         
-        .skill-category.version {
-            background: linear-gradient(135deg, #2c2c54 0%, #40407a 100%);
+        .monitoring .category-header {
+            border-color: #198754;
+            color: #34d399;
+        }
+        
+        .version .category-header {
+            border-color: #495057;
+            color: #9ca3af;
         }
         
         .skill-tag {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            margin: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px 8px 5px 0;
             font-size: 0.9rem;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 400;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .skill-tag:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
             transform: scale(1.05);
         }
         
-        .skill-category.cloud .skill-tag {
-            background: rgba(0, 0, 0, 0.1);
-            color: #333;
-            border: 1px solid rgba(0, 0, 0, 0.2);
+        .cybersecurity .skill-tag:hover {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+            color: #ff6b6b;
         }
         
-        .skill-category.cloud .skill-tag:hover {
-            background: rgba(0, 0, 0, 0.2);
+        .networking .skill-tag:hover {
+            background: rgba(13, 110, 253, 0.2);
+            border-color: #0d6efd;
+            color: #4da6ff;
         }
         
-        .category-icon {
-            font-size: 1.5rem;
-            margin-right: 10px;
+        .security .skill-tag:hover {
+            background: rgba(111, 66, 193, 0.2);
+            border-color: #6f42c1;
+            color: #a855f7;
         }
         
-        .category-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .devops .skill-tag:hover {
+            background: rgba(32, 201, 151, 0.2);
+            border-color: #20c997;
+            color: #06ffa5;
         }
         
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
+        .scripting .skill-tag:hover {
+            background: rgba(253, 126, 20, 0.2);
+            border-color: #fd7e14;
+            color: #ffa726;
         }
         
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+        .cloud .skill-tag:hover {
+            background: rgba(13, 202, 240, 0.2);
+            border-color: #0dcaf0;
+            color: #22d3ee;
         }
         
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
+        .linux .skill-tag:hover {
+            background: rgba(108, 117, 125, 0.2);
+            border-color: #6c757d;
+            color: #adb5bd;
         }
         
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
+        .monitoring .skill-tag:hover {
+            background: rgba(25, 135, 84, 0.2);
+            border-color: #198754;
+            color: #34d399;
         }
         
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 30%;
-            animation-delay: 4s;
+        .version .skill-tag:hover {
+            background: rgba(73, 80, 87, 0.2);
+            border-color: #495057;
+            color: #9ca3af;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .stats-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
+        .stats-container {
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
             margin-bottom: 20px;
         }
         
-        .stats-number {
-            font-size: 2rem;
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
+            margin-bottom: 5px;
         }
         
-        .footer {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            margin-top: 50px;
+        .stat-label {
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        .main-container {
+            margin-top: 2%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 5%;
+            padding: 0%;
         }
     </style>
-</head>
-<body>
-    <!-- Floating Background Shapes -->
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+  </head>
+  <body class="bg-dark text-white">
+   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a class="navbar-brand myname" href="index.html">Ajet Tesla</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="aboutme.html">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="skill.html">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">Projects</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="exp.html">Experience</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-code me-2"></i>Ajet Tesla
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="skill.html"><i class="fas fa-cogs me-1"></i>Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-project-diagram me-1"></i>Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-briefcase me-1"></i>Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i>Contact</a>
-                    </li>
-                </ul>
+<div class="container main-container">
+    <div class="skill-section">
+        <!-- Page Title -->
+        <h1 class="skill-title">Technical Skills</h1>
+        
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Security Tools</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Network Protocols</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Programming Languages</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Cloud Platforms</div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Skills Categories -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="skill-category cybersecurity">
+                    <div class="category-header">🛡️ Cybersecurity Tools</div>
+                    <div class="skill-tag">Snort</div>
+                    <div class="skill-tag">Zeek</div>
+                    <div class="skill-tag">Splunk</div>
+                    <div class="skill-tag">Sysmon</div>
+                    <div class="skill-tag">Rapid 7</div>
+                    <div class="skill-tag">Nmap</div>
+                    <div class="skill-tag">Wireshark</div>
+                    <div class="skill-tag">OpenSSL</div>
+                    <div class="skill-tag">Metasploit</div>
+                    <div class="skill-tag">BurpSuite</div>
+                    <div class="skill-tag">Gophish</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category networking">
+                    <div class="category-header">🌐 Networking</div>
+                    <div class="skill-tag">TCP/UDP</div>
+                    <div class="skill-tag">OSPF</div>
+                    <div class="skill-tag">EIGRP</div>
+                    <div class="skill-tag">VPN</div>
+                    <div class="skill-tag">VLANs</div>
+                    <div class="skill-tag">DHCP</div>
+                    <div class="skill-tag">ACLs</div>
+                    <div class="skill-tag">STP</div>
+                    <div class="skill-tag">Wi-Fi</div>
+                    <div class="skill-tag">QoS</div>
+                    <div class="skill-tag">RADIUS</div>
+                    <div class="skill-tag">802.1X</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category security">
+                    <div class="category-header">🔒 Security Knowledge</div>
+                    <div class="skill-tag">MITRE ATT&CK</div>
+                    <div class="skill-tag">Cyber Kill Chain</div>
+                    <div class="skill-tag">Incident Response</div>
+                    <div class="skill-tag">Log Analysis</div>
+                    <div class="skill-tag">OWASP</div>
+                    <div class="skill-tag">Cryptography</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category devops">
+                    <div class="category-header">⚙️ DevOps Tools</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">Terraform</div>
+                    <div class="skill-tag">Jenkins</div>
+                    <div class="skill-tag">Ansible</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category scripting">
+                    <div class="category-header">💻 Scripting & Programming</div>
+                    <div class="skill-tag">Bash</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">C</div>
+                    <div class="skill-tag">C++</div>
+                    <div class="skill-tag">Matlab</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">HTML</div>
+                    <div class="skill-tag">CSS</div>
+                    <div class="skill-tag">PowerShell</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category cloud">
+                    <div class="category-header">☁️ Cloud & Infrastructure</div>
+                    <div class="skill-tag">AWS</div>
+                    <div class="skill-tag">OpenStack</div>
+                    <div class="skill-tag">Kubernetes</div>
+                    <div class="skill-tag">MySQL</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category linux">
+                    <div class="category-header">🐧 Linux Administration</div>
+                    <div class="skill-tag">Services</div>
+                    <div class="skill-tag">Networking</div>
+                    <div class="skill-tag">System Hardening</div>
+                    <div class="skill-tag">iptables</div>
+                    <div class="skill-tag">Shell Scripting</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="skill-category monitoring">
+                    <div class="category-header">📊 Monitoring</div>
+                    <div class="skill-tag">Prometheus</div>
+                    <div class="skill-tag">Grafana</div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="skill-category version">
+                    <div class="category-header">📝 Version Control</div>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">GitHub</div>
+                    <div class="skill-tag">GitLab</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar bottom bg-dark border-bottom border-body bottom-navbar">
+      <div class="container text-center position-relative">
+        <div class="row align-items-center translate-middle">
+          <div class="col">
+            <a><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt=""></a>
+          </div>
+          <div class="col">
+              <a><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt=""></a>
+          </div>
+          <div class="col">
+          <a><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt=""></a>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <!-- Skills Section -->
-    <div class="container">
-        <div class="skills-container">
-            <div class="text-center mb-5">
-                <h1 class="section-title">
-                    <i class="fas fa-shield-alt me-3"></i>My Technical Arsenal
-                </h1>
-                <p class="lead text-muted">Specialized in Cybersecurity, Networking & Cloud Technologies</p>
-            </div>
-
-            <!-- Skills Stats -->
-            <div class="row mb-5">
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-number">50+</div>
-                        <div class="text-muted">Security Tools</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-number">15+</div>
-                        <div class="text-muted">Protocols</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-number">10+</div>
-                        <div class="text-muted">Languages</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-number">5+</div>
-                        <div class="text-muted">Cloud Platforms</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills Categories -->
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category cybersecurity">
-                        <div class="category-title">
-                            <i class="fas fa-shield-virus category-icon"></i>Cybersecurity Tools
-                        </div>
-                        <div class="skill-tag">Snort</div>
-                        <div class="skill-tag">Zeek</div>
-                        <div class="skill-tag">Splunk</div>
-                        <div class="skill-tag">Sysmon</div>
-                        <div class="skill-tag">Rapid 7</div>
-                        <div class="skill-tag">Nmap</div>
-                        <div class="skill-tag">Wireshark</div>
-                        <div class="skill-tag">OpenSSL</div>
-                        <div class="skill-tag">Metasploit</div>
-                        <div class="skill-tag">BurpSuite</div>
-                        <div class="skill-tag">Gophish</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category networking">
-                        <div class="category-title">
-                            <i class="fas fa-network-wired category-icon"></i>Networking
-                        </div>
-                        <div class="skill-tag">TCP/UDP</div>
-                        <div class="skill-tag">OSPF</div>
-                        <div class="skill-tag">EIGRP</div>
-                        <div class="skill-tag">VPN</div>
-                        <div class="skill-tag">VLANs</div>
-                        <div class="skill-tag">DHCP</div>
-                        <div class="skill-tag">ACLs</div>
-                        <div class="skill-tag">STP</div>
-                        <div class="skill-tag">Wi-Fi</div>
-                        <div class="skill-tag">QoS</div>
-                        <div class="skill-tag">RADIUS</div>
-                        <div class="skill-tag">802.1X</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category security">
-                        <div class="category-title">
-                            <i class="fas fa-user-shield category-icon"></i>Security Knowledge
-                        </div>
-                        <div class="skill-tag">MITRE ATT&CK</div>
-                        <div class="skill-tag">Cyber Kill Chain</div>
-                        <div class="skill-tag">Incident Response</div>
-                        <div class="skill-tag">Log Analysis</div>
-                        <div class="skill-tag">OWASP</div>
-                        <div class="skill-tag">Cryptography</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category devops">
-                        <div class="category-title">
-                            <i class="fab fa-docker category-icon"></i>DevOps Tools
-                        </div>
-                        <div class="skill-tag">Docker</div>
-                        <div class="skill-tag">Terraform</div>
-                        <div class="skill-tag">Jenkins</div>
-                        <div class="skill-tag">Ansible</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category scripting">
-                        <div class="category-title">
-                            <i class="fas fa-code category-icon"></i>Scripting & Programming
-                        </div>
-                        <div class="skill-tag">Bash</div>
-                        <div class="skill-tag">Python</div>
-                        <div class="skill-tag">C</div>
-                        <div class="skill-tag">C++</div>
-                        <div class="skill-tag">Matlab</div>
-                        <div class="skill-tag">JavaScript</div>
-                        <div class="skill-tag">HTML</div>
-                        <div class="skill-tag">CSS</div>
-                        <div class="skill-tag">PowerShell</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category cloud">
-                        <div class="category-title">
-                            <i class="fas fa-cloud category-icon"></i>Cloud & Infrastructure
-                        </div>
-                        <div class="skill-tag">AWS</div>
-                        <div class="skill-tag">OpenStack</div>
-                        <div class="skill-tag">Kubernetes</div>
-                        <div class="skill-tag">MySQL</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category linux">
-                        <div class="category-title">
-                            <i class="fab fa-linux category-icon"></i>Linux Administration
-                        </div>
-                        <div class="skill-tag">Services</div>
-                        <div class="skill-tag">Networking</div>
-                        <div class="skill-tag">System Hardening</div>
-                        <div class="skill-tag">iptables</div>
-                        <div class="skill-tag">Shell Scripting</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category monitoring">
-                        <div class="category-title">
-                            <i class="fas fa-chart-line category-icon"></i>Monitoring
-                        </div>
-                        <div class="skill-tag">Prometheus</div>
-                        <div class="skill-tag">Grafana</div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 mb-4">
-                    <div class="skill-category version">
-                        <div class="category-title">
-                            <i class="fab fa-git-alt category-icon"></i>Version Control
-                        </div>
-                        <div class="skill-tag">Git</div>
-                        <div class="skill-tag">GitHub</div>
-                        <div class="skill-tag">GitLab</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer text-white py-4">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <h5><i class="fas fa-rocket me-2"></i>Let's Connect & Secure the Digital World</h5>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                        <a href="#" class="text-white"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="#" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4">
-                <p>&copy; 2025 Ajet Tesla. Cybersecurity Professional | Ethical Hacker | Cloud Architect</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="javascript/javascript.js"></script>
     
     <script>
-        // Add some interactive hover effects
+        // Add interactive effects while maintaining the minimalist feel
         document.addEventListener('DOMContentLoaded', function() {
             const skillTags = document.querySelectorAll('.skill-tag');
             
             skillTags.forEach(tag => {
                 tag.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1) rotate(2deg)';
-                });
-                
-                tag.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
+                    this.style.transition = 'all 0.2s ease';
                 });
             });
         });
     </script>
-</body>
+  </body>
 </html>
