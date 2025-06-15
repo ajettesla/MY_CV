@@ -207,6 +207,21 @@
         .hobby-reading .hobby-icon { color: #ffa726; }
         .hobby-podcast .hobby-icon { color: #06ffa5; }
         
+        /* Custom badminton icon using CSS */
+        .badminton-icon {
+            position: relative;
+            display: inline-block;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
+            color: #4ecdc4;
+        }
+        
+        .badminton-icon::before {
+            content: "🏸";
+            font-size: 1em;
+            display: block;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hobbies-container {
@@ -348,9 +363,7 @@
                 </div>
 
                 <div class="hobby-item hobby-sports">
-                    <div class="hobby-icon">
-                        <i class="fas fa-shuttlecock"></i>
-                    </div>
+                    <div class="badminton-icon"></div>
                     <div class="hobby-name">Playing Badminton</div>
                 </div>
 
