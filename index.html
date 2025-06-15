@@ -23,12 +23,12 @@
     <meta name="theme-color" content="#ffffff">
     
     <style>
-        /* Dynamic responsive styles using viewport units */
+        /* Fixed height container - no scrolling */
         .enhanced-main {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-            min-height: 100vh;
+            height: 100vh;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
         
         .enhanced-main::before {
@@ -46,7 +46,10 @@
         .main-content {
             position: relative;
             z-index: 2;
-            padding: 2vh 2vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Dynamic font sizing using clamp for perfect scaling */
@@ -152,30 +155,6 @@
         .phone-icon::before { background: linear-gradient(45deg, #25d366, #128c7e); }
         .phone-icon:hover { border-color: #25d366; box-shadow: 0 1vh 2vh rgba(37, 211, 102, 0.3); }
         
-        /* Enhanced navbar with dynamic sizing */
-        .navbar {
-            background: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            padding: 1vh 2vw;
-        }
-        
-        .navbar-brand {
-            font-weight: 600;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-        }
-        
-        .nav-link {
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
-        }
-        
-        .nav-link:hover {
-            color: #667eea !important;
-            transform: translateY(-0.2vh);
-        }
-        
         /* Profile image with dynamic sizing */
         .profile-container {
             margin-bottom: 3vh;
@@ -206,7 +185,7 @@
             margin: 0 auto;
         }
         
-        /* Improved responsive breakpoints */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .social-container {
                 bottom: 1.5vh;
@@ -215,10 +194,6 @@
             
             .maintext {
                 font-size: clamp(2.5rem, 12vw, 4rem);
-            }
-            
-            .main-content {
-                padding: 1vh 3vw;
             }
         }
         
@@ -235,42 +210,27 @@
         }
     </style>
   </head>
-  <body class="enhanced-main">
-   <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+  <body class="bg-dark text-white">
+   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a href="#" class="d-flex align-items-center">
-        <img src="photos/myPhoto2.png" alt="Profile" width="40" height="40" class="rounded-image me-2">
-        <span class="navbar-brand myname mb-0">Poorna Teja</span>
-    </a>
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">
-              <i class="fas fa-home me-1"></i>Home
-          </a>
+          <a class="nav-link active" aria-current="page" href="aboutme.html">About Me</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="aboutme.html">
-              <i class="fas fa-user me-1"></i>About Me
-          </a>
+          <a class="nav-link" href="skill.html">Skills</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="skills.html">
-              <i class="fas fa-cogs me-1"></i>Skills
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="projects.html">
-              <i class="fas fa-project-diagram me-1"></i>Projects
-          </a>
+          <a class="nav-link" href="projects.html">Projects</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="exp.html">
-              <i class="fas fa-briefcase me-1"></i>Experience
-          </a>
+          <a class="nav-link" href="exp.html">Experience</a>
         </li>
       </ul>
     </div>
@@ -278,22 +238,20 @@
 </nav>
 
 <div class="main-content">
-    <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="text-center text-container">
-            <div class="profile-container">
-                <img src="photos/myPhoto2.png" alt="Poorna Teja" class="profile-image">
-            </div>
-            
-            <div class="textinmain">
-                <h1 class="maintext">Hi</h1>
-                <h1 class="maintext">I am</h1>
-                <h1 class="maintext">Teja</h1>
-            </div>
-            
-            <p class="subtitle">
-                🛡️ Cybersecurity Professional | 🚀 Innovation Enthusiast | 🤖 Robotics Engineer
-            </p>
+    <div class="text-center text-container">
+        <div class="profile-container">
+            <img src="photos/myPhoto2.png" alt="Poorna Teja" class="profile-image">
         </div>
+        
+        <div class="textinmain">
+            <h1 class="maintext">Hi</h1>
+            <h1 class="maintext">I am</h1>
+            <h1 class="maintext">Teja</h1>
+        </div>
+        
+        <p class="subtitle">
+            🛡️ Cybersecurity Professional | 🚀 Innovation Enthusiast | 🤖 Robotics Engineer
+        </p>
     </div>
 </div>
 
@@ -326,16 +284,7 @@
     <script src="javascript/javascript.js"></script>
     
     <script>
-        // Dynamic viewport adjustment
-        function adjustForZoom() {
-            const zoomLevel = Math.round(window.devicePixelRatio * 100) / 100;
-            document.documentElement.style.setProperty('--zoom-factor', zoomLevel);
-        }
-        
         document.addEventListener('DOMContentLoaded', function() {
-            adjustForZoom();
-            window.addEventListener('resize', adjustForZoom);
-            
             // Add typing effect to subtitle
             const subtitle = document.querySelector('.subtitle');
             const text = subtitle.textContent;
