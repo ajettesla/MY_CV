@@ -3,12 +3,436 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>About Me</title>
+    <title>About Me - Poorna Teja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+    <link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <style>
+        .about-section {
+            font-family: 'Poppins', sans-serif;
+            padding: clamp(2rem, 5vh, 4rem) 0;
+        }
+        
+        .about-title {
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: clamp(2rem, 5vh, 4rem);
+            line-height: 1.2;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: clamp(0.8rem, 2vw, 1.2rem);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+        }
+        
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-0.3vh);
+            box-shadow: 0 2vh 4vh rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-header {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: clamp(1rem, 3vh, 1.5rem);
+            background: linear-gradient(45deg, #4da6ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .education-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: clamp(3px, 1vw, 4px) solid #20c997;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+            border-radius: 0 clamp(0.5rem, 1.5vw, 0.8rem) clamp(0.5rem, 1.5vw, 0.8rem) 0;
+        }
+        
+        .education-degree {
+            font-size: clamp(1rem, 2.8vw, 1.2rem);
+            font-weight: 600;
+            color: #06ffa5;
+            margin-bottom: clamp(0.3rem, 1vh, 0.5rem);
+            line-height: 1.3;
+        }
+        
+        .education-institution {
+            font-size: clamp(0.9rem, 2.4vw, 1.1rem);
+            color: #22d3ee;
+            font-weight: 500;
+            margin-bottom: clamp(0.3rem, 1vh, 0.5rem);
+        }
+        
+        .education-location {
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+            color: #adb5bd;
+            margin-bottom: clamp(0.3rem, 1vh, 0.5rem);
+        }
+        
+        .education-duration {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: clamp(3px, 1vw, 4px) solid #ffa726;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+            border-radius: 0 clamp(0.5rem, 1.5vw, 0.8rem) clamp(0.5rem, 1.5vw, 0.8rem) 0;
+        }
+        
+        .achievement-title {
+            font-size: clamp(1rem, 2.8vw, 1.2rem);
+            font-weight: 600;
+            color: #ffa726;
+            margin-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
+            line-height: 1.3;
+        }
+        
+        .achievement-description {
+            color: #fff3cd;
+            line-height: 1.6;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+        }
+        
+        .hobbies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(12rem, 25vw, 18rem), 1fr));
+            gap: clamp(1rem, 2.5vw, 1.5rem);
+            margin-top: clamp(1rem, 2.5vh, 1.5rem);
+        }
+        
+        .hobby-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: clamp(0.8rem, 2vw, 1.2rem);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hobby-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-0.2vh) scale(1.02);
+        }
+        
+        .hobby-icon {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hobby-name {
+            font-size: clamp(0.9rem, 2.4vw, 1.1rem);
+            font-weight: 500;
+            color: #e9ecef;
+            line-height: 1.3;
+        }
+        
+        .intro-section {
+            text-align: center;
+            margin-bottom: clamp(2rem, 4vh, 3rem);
+        }
+        
+        .intro-text {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #adb5bd;
+            line-height: 1.6;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: #4da6ff;
+            font-weight: 600;
+        }
+        
+        .main-container {
+            margin-top: 2vh;
+            margin-left: clamp(2%, 5vw, 10%);
+            margin-right: clamp(2%, 5vw, 10%);
+            margin-bottom: clamp(2vh, 5vh, 5%);
+            padding: 0;
+        }
+        
+        /* Color coding for different hobbies */
+        .hobby-music .hobby-icon { color: #ff6b6b; }
+        .hobby-sports .hobby-icon { color: #4ecdc4; }
+        .hobby-gaming .hobby-icon { color: #a855f7; }
+        .hobby-reading .hobby-icon { color: #ffa726; }
+        .hobby-podcast .hobby-icon { color: #06ffa5; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hobbies-container {
+                grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+                gap: 1rem;
+            }
+            
+            .intro-text {
+                max-width: 95%;
+            }
+            
+            .main-container {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hobbies-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
   </head>
-  <body bg-dark text-white>
-    <h1>Hello, world!</h1>
+  <body class="bg-dark text-white">
+   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="aboutme.html">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="skill.html">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">Projects</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="exp.html">Experience</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container main-container">
+    <div class="about-section">
+        <!-- Page Title -->
+        <h1 class="about-title">About Me</h1>
+        
+        <!-- Introduction -->
+        <div class="intro-section">
+            <p class="intro-text">
+                Hello! I'm <span class="highlight">Poorna Teja</span>, a passionate cybersecurity professional and telecommunications engineer. 
+                Currently pursuing my Master's degree at <span class="highlight">Blekinge Institute of Technology</span> in Sweden, 
+                I'm dedicated to advancing the field of cybersecurity through innovative research and practical applications.
+            </p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section-card">
+            <h2 class="section-header">
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </h2>
+            
+            <div class="education-item">
+                <div class="education-degree">Master's Programme in Telecommunication Systems</div>
+                <div class="education-institution">Blekinge Institute of Technology</div>
+                <div class="education-location">📍 Karlskrona, Sweden</div>
+                <div class="education-duration">📅 Aug 2023 – Present</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Bachelor Qualification Plan in Electrical Engineering</div>
+                <div class="education-institution">Blekinge Institute of Technology</div>
+                <div class="education-location">📍 Karlskrona, Sweden</div>
+                <div class="education-duration">📅 Aug 2022 – Jun 2023</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Bachelor of Technology in Electronics and Communications Engineering</div>
+                <div class="education-institution">Andhra University College of Engineering</div>
+                <div class="education-location">📍 Vizag, India</div>
+                <div class="education-duration">📅 Aug 2019 – Jun 2022</div>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="section-card">
+            <h2 class="section-header">
+                <i class="fas fa-trophy"></i>
+                Achievements
+            </h2>
+            
+            <div class="achievement-item">
+                <div class="achievement-title">🏆 BTH Scholarship</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 Aug 2022 – Present</div>
+                <div class="achievement-description">
+                    Awarded a prestigious 50% scholarship for Bachelor's and Master's studies at Blekinge Institute of Technology, 
+                    recognizing outstanding academic performance and potential in the field of engineering and telecommunications.
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-title">👑 School Prefect Leader (SPL)</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 High School</div>
+                <div class="achievement-description">
+                    Appointed as Student Prefect Leader, demonstrating exceptional leadership skills while representing the student body 
+                    and organizing various school activities. Actively participated in extracurricular activities including acting and 
+                    mono-action performances, earning multiple awards for outstanding contributions to school cultural programs.
+                </div>
+            </div>
+        </div>
+
+        <!-- Hobbies Section -->
+        <div class="section-card">
+            <h2 class="section-header">
+                <i class="fas fa-heart"></i>
+                Hobbies & Interests
+            </h2>
+            
+            <div class="hobbies-container">
+                <div class="hobby-item hobby-music">
+                    <div class="hobby-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="hobby-name">Listening to Music</div>
+                </div>
+
+                <div class="hobby-item hobby-sports">
+                    <div class="hobby-icon">
+                        <i class="fas fa-shuttlecock"></i>
+                    </div>
+                    <div class="hobby-name">Playing Badminton</div>
+                </div>
+
+                <div class="hobby-item hobby-sports">
+                    <div class="hobby-icon">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <div class="hobby-name">Volleyball</div>
+                </div>
+
+                <div class="hobby-item hobby-gaming">
+                    <div class="hobby-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="hobby-name">Video Games</div>
+                </div>
+
+                <div class="hobby-item hobby-reading">
+                    <div class="hobby-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="hobby-name">Reading Books</div>
+                </div>
+
+                <div class="hobby-item hobby-podcast">
+                    <div class="hobby-icon">
+                        <i class="fas fa-podcast"></i>
+                    </div>
+                    <div class="hobby-name">Listening to Podcasts</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar bottom bg-dark border-bottom border-body bottom-navbar">
+      <div class="container text-center position-relative">
+        <div class="row align-items-center translate-middle">
+          <div class="col">
+            <a><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt=""></a>
+          </div>
+          <div class="col">
+              <a><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt=""></a>
+          </div>
+          <div class="col">
+          <a><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="javascript/javascript.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation to education items
+            const educationItems = document.querySelectorAll('.education-item');
+            educationItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+
+            // Add hover effect to hobby items
+            const hobbyItems = document.querySelectorAll('.hobby-item');
+            hobbyItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
   </body>
 </html>
