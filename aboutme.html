@@ -35,6 +35,15 @@
             text-align: center;
             margin-bottom: clamp(2rem, 5vh, 4rem);
             line-height: 1.2;
+            background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         .section-card {
@@ -85,6 +94,12 @@
             padding: clamp(1rem, 3vw, 1.5rem);
             margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
             border-radius: 0 clamp(0.5rem, 1.5vw, 0.8rem) clamp(0.5rem, 1.5vw, 0.8rem) 0;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
         }
         
         .education-degree {
@@ -120,6 +135,12 @@
             padding: clamp(1rem, 3vw, 1.5rem);
             margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
             border-radius: 0 clamp(0.5rem, 1.5vw, 0.8rem) clamp(0.5rem, 1.5vw, 0.8rem) 0;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
         }
         
         .achievement-title {
@@ -183,7 +204,7 @@
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: #adb5bd;
             line-height: 1.6;
-            max-width: 80%;
+            max-width: 85%;
             margin: 0 auto;
         }
         
@@ -206,20 +227,86 @@
         .hobby-gaming .hobby-icon { color: #a855f7; }
         .hobby-reading .hobby-icon { color: #ffa726; }
         .hobby-podcast .hobby-icon { color: #06ffa5; }
+        .hobby-tech .hobby-icon { color: #22d3ee; }
         
-        /* Custom badminton icon using CSS */
-        .badminton-icon {
-            position: relative;
-            display: inline-block;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
-            color: #4ecdc4;
+        /* Enhanced navbar styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.6rem 1rem;
+            background-color: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(15px);
         }
         
-        .badminton-icon::before {
-            content: "🏸";
-            font-size: 1em;
-            display: block;
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #4ecdc4;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+        
+        .nav-link:hover {
+            color: #4ecdc4 !important;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.03);
+        }
+        
+        .rounded-image {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover .rounded-image {
+            border-color: #4ecdc4;
+            transform: rotate(10deg);
+        }
+        
+        /* Bottom navigation */
+        .bottom-navbar {
+            background: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        
+        .imageicon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .imageicon:hover {
+            opacity: 1;
+            transform: scale(1.1);
         }
         
         /* Responsive adjustments */
@@ -237,6 +324,13 @@
                 margin-left: 3%;
                 margin-right: 3%;
             }
+            
+            .navbar-collapse {
+                background-color: rgba(33, 37, 41, 0.95);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-top: 0.5rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -253,7 +347,7 @@
   <body class="bg-dark text-white">
    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="40" height="40" class="rounded-image"></a>
+    <a href="photos/myPhoto2.png"><img src="photos/myPhoto2.png" alt="Logo" width="35" height="35" class="rounded-image"></a>
     <a class="navbar-brand myname" href="index.html">Poorna Teja</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -261,16 +355,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="aboutme.html">About Me</a>
+          <a class="nav-link active" aria-current="page" href="aboutme.html">
+            <i class="fas fa-user"></i> About Me
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="skill.html">Skills</a>
+          <a class="nav-link" href="skill.html">
+            <i class="fas fa-code"></i> Skills
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="projects.html">Projects</a>
+          <a class="nav-link" href="projects.html">
+            <i class="fas fa-laptop-code"></i> Projects
+          </a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="exp.html">Experience</a>
+          <a class="nav-link" href="exp.html">
+            <i class="fas fa-briefcase"></i> Experience
+          </a>
         </li>
       </ul>
     </div>
@@ -285,9 +387,10 @@
         <!-- Introduction -->
         <div class="intro-section">
             <p class="intro-text">
-                Hello! I'm <span class="highlight">Poorna Teja</span>, a passionate cybersecurity professional and telecommunications engineer. 
+                Hello! I'm <span class="highlight">Poorna Teja Bojja</span>, a passionate cybersecurity professional and telecommunications engineer. 
                 Currently pursuing my Master's degree at <span class="highlight">Blekinge Institute of Technology</span> in Sweden, 
-                I'm dedicated to advancing the field of cybersecurity through innovative research and practical applications.
+                I'm dedicated to advancing the field of cybersecurity through innovative research, practical applications, and continuous learning. 
+                My journey spans from robotics engineering to cybersecurity, where I combine technical expertise with a passion for protecting digital infrastructures.
             </p>
         </div>
 
@@ -299,24 +402,61 @@
             </h2>
             
             <div class="education-item">
-                <div class="education-degree">Master's Programme in Telecommunication Systems</div>
-                <div class="education-institution">Blekinge Institute of Technology</div>
+                <div class="education-degree">Master of Science in Telecommunication Systems</div>
+                <div class="education-institution">Blekinge Institute of Technology (BTH)</div>
                 <div class="education-location">📍 Karlskrona, Sweden</div>
-                <div class="education-duration">📅 Aug 2023 – Present</div>
+                <div class="education-duration">📅 August 2023 – June 2025 (Expected)</div>
+                <div style="margin-top: 0.5rem; color: #4da6ff; font-size: 0.9rem;">
+                    <strong>Specialization:</strong> Cybersecurity & Network Security
+                </div>
             </div>
 
             <div class="education-item">
                 <div class="education-degree">Bachelor Qualification Plan in Electrical Engineering</div>
-                <div class="education-institution">Blekinge Institute of Technology</div>
+                <div class="education-institution">Blekinge Institute of Technology (BTH)</div>
                 <div class="education-location">📍 Karlskrona, Sweden</div>
-                <div class="education-duration">📅 Aug 2022 – Jun 2023</div>
+                <div class="education-duration">📅 August 2022 – June 2023</div>
+                <div style="margin-top: 0.5rem; color: #4da6ff; font-size: 0.9rem;">
+                    <strong>Focus:</strong> Bridging program for international students
+                </div>
             </div>
 
             <div class="education-item">
                 <div class="education-degree">Bachelor of Technology in Electronics and Communications Engineering</div>
-                <div class="education-institution">Andhra University College of Engineering</div>
-                <div class="education-location">📍 Vizag, India</div>
-                <div class="education-duration">📅 Aug 2019 – Jun 2022</div>
+                <div class="education-institution">Andhra University College of Engineering (AUCE)</div>
+                <div class="education-location">📍 Visakhapatnam, India</div>
+                <div class="education-duration">📅 August 2019 – June 2022</div>
+                <div style="margin-top: 0.5rem; color: #4da6ff; font-size: 0.9rem;">
+                    <strong>CGPA:</strong> 8.2/10 | <strong>Final Year Project:</strong> Gesture-Controlled Robotic Arm
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary Section -->
+        <div class="section-card">
+            <h2 class="section-header">
+                <i class="fas fa-user-tie"></i>
+                Professional Summary
+            </h2>
+            
+            <div style="color: #e9ecef; line-height: 1.7; font-size: clamp(0.9rem, 2.2vw, 1rem);">
+                <p style="margin-bottom: 1rem;">
+                    As a dedicated cybersecurity professional with a strong foundation in telecommunications and electronics engineering, 
+                    I bring a unique perspective to digital security challenges. My academic journey from India to Sweden has provided 
+                    me with diverse cultural insights and technical expertise.
+                </p>
+                
+                <p style="margin-bottom: 1rem;">
+                    Currently specializing in advanced cybersecurity concepts including threat detection, network security analysis, 
+                    and security automation. My hands-on experience with industry-standard tools like Splunk, Wireshark, Snort, 
+                    and various penetration testing frameworks positions me well for modern cybersecurity challenges.
+                </p>
+                
+                <p>
+                    I'm particularly interested in the intersection of artificial intelligence and cybersecurity, exploring how 
+                    machine learning can enhance threat detection and incident response capabilities. My goal is to contribute 
+                    to creating more secure and resilient digital infrastructures.
+                </p>
             </div>
         </div>
 
@@ -324,25 +464,87 @@
         <div class="section-card">
             <h2 class="section-header">
                 <i class="fas fa-trophy"></i>
-                Achievements
+                Achievements & Recognition
             </h2>
             
             <div class="achievement-item">
-                <div class="achievement-title">🏆 BTH Scholarship</div>
-                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 Aug 2022 – Present</div>
+                <div class="achievement-title">🏆 BTH International Student Scholarship</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 August 2022 – Present</div>
                 <div class="achievement-description">
-                    Awarded a prestigious 50% scholarship for Bachelor's and Master's studies at Blekinge Institute of Technology, 
-                    recognizing outstanding academic performance and potential in the field of engineering and telecommunications.
+                    Awarded a prestigious 50% tuition waiver scholarship for both Bachelor's Qualification and Master's studies at 
+                    Blekinge Institute of Technology, recognizing outstanding academic performance and potential in engineering and 
+                    telecommunications. This merit-based scholarship reflects academic excellence and commitment to advancing in the field.
                 </div>
             </div>
 
             <div class="achievement-item">
-                <div class="achievement-title">👑 School Prefect Leader (SPL)</div>
-                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 High School</div>
+                <div class="achievement-title">🎯 Outstanding Final Year Project</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 2023</div>
                 <div class="achievement-description">
-                    Appointed as Student Prefect Leader, demonstrating exceptional leadership skills while representing the student body 
-                    and organizing various school activities. Actively participated in extracurricular activities including acting and 
-                    mono-action performances, earning multiple awards for outstanding contributions to school cultural programs.
+                    Led the development of an innovative gesture-controlled robotic arm system that received high praise from faculty 
+                    and industry professionals. The project demonstrated advanced understanding of sensor integration, real-time processing, 
+                    and human-machine interface design, earning recognition for technical innovation and practical application.
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-title">👑 School Student Leader (SPL)</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 High School Years</div>
+                <div class="achievement-description">
+                    Appointed as Student Prefect Leader during high school, demonstrating exceptional leadership skills and responsibility. 
+                    Successfully organized multiple school events, represented the student body in administrative meetings, and actively 
+                    participated in cultural programs including acting and public speaking competitions, earning several awards for 
+                    outstanding contributions to school community life.
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-title">🌟 Academic Excellence</div>
+                <div class="achievement-duration" style="color: #6c757d; font-style: italic; margin-bottom: 0.5rem;">📅 Throughout Academic Career</div>
+                <div class="achievement-description">
+                    Consistently maintained high academic standards throughout educational journey, ranking in the top 10% of class 
+                    in undergraduate studies. Received multiple semester appreciation certificates for academic performance and 
+                    active participation in technical symposiums and engineering competitions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills & Interests Section -->
+        <div class="section-card">
+            <h2 class="section-header">
+                <i class="fas fa-lightbulb"></i>
+                Core Competencies
+            </h2>
+            
+            <div style="color: #e9ecef; line-height: 1.7; font-size: clamp(0.9rem, 2.2vw, 1rem);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                    <div>
+                        <h4 style="color: #4da6ff; margin-bottom: 0.5rem;">🛡️ Cybersecurity</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Network Security Analysis</li>
+                            <li>• Threat Detection & Response</li>
+                            <li>• Vulnerability Assessment</li>
+                            <li>• Security Tool Implementation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #4da6ff; margin-bottom: 0.5rem;">💻 Technical Skills</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Python & Bash Scripting</li>
+                            <li>• Network Protocol Analysis</li>
+                            <li>• Linux System Administration</li>
+                            <li>• Cloud Security (AWS)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #4da6ff; margin-bottom: 0.5rem;">🎯 Personal Qualities</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Analytical Problem Solving</li>
+                            <li>• Continuous Learning</li>
+                            <li>• Team Collaboration</li>
+                            <li>• Cultural Adaptability</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -359,12 +561,14 @@
                     <div class="hobby-icon">
                         <i class="fas fa-music"></i>
                     </div>
-                    <div class="hobby-name">Listening to Music</div>
+                    <div class="hobby-name">Music Enthusiast</div>
                 </div>
 
                 <div class="hobby-item hobby-sports">
-                    <div class="badminton-icon"></div>
-                    <div class="hobby-name">Playing Badminton</div>
+                    <div class="hobby-icon">
+                        🏸
+                    </div>
+                    <div class="hobby-name">Badminton Player</div>
                 </div>
 
                 <div class="hobby-item hobby-sports">
@@ -378,21 +582,35 @@
                     <div class="hobby-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
-                    <div class="hobby-name">Video Games</div>
+                    <div class="hobby-name">Gaming</div>
                 </div>
 
                 <div class="hobby-item hobby-reading">
                     <div class="hobby-icon">
                         <i class="fas fa-book"></i>
                     </div>
-                    <div class="hobby-name">Reading Books</div>
+                    <div class="hobby-name">Reading</div>
                 </div>
 
                 <div class="hobby-item hobby-podcast">
                     <div class="hobby-icon">
                         <i class="fas fa-podcast"></i>
                     </div>
-                    <div class="hobby-name">Listening to Podcasts</div>
+                    <div class="hobby-name">Podcasts</div>
+                </div>
+
+                <div class="hobby-item hobby-tech">
+                    <div class="hobby-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="hobby-name">Robotics</div>
+                </div>
+
+                <div class="hobby-item hobby-tech">
+                    <div class="hobby-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="hobby-name">Photography</div>
                 </div>
             </div>
         </div>
@@ -404,13 +622,13 @@
       <div class="container text-center position-relative">
         <div class="row align-items-center translate-middle">
           <div class="col">
-            <a><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt=""></a>
+            <a href="tel:+917793987362"><img class="imageicon" src="fav/telephone.png" width="30" height="30" alt="Phone"></a>
           </div>
           <div class="col">
-              <a><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt=""></a>
+              <a href="https://discord.com/users/poornatejabojja" target="_blank"><img class="imageicon" src="fav/discord.png"  width="30" height="30" alt="Discord"></a>
           </div>
           <div class="col">
-          <a><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt=""></a>
+          <a href="mailto:poornateja.bo@gmail.com"><img class="imageicon" src="fav/gmail.png"  width="30" height="30" alt="Email"></a>
           </div>
         </div>
       </div>
@@ -444,6 +662,19 @@
                 item.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
                 });
+            });
+
+            // Add animation to achievement items
+            const achievementItems = document.querySelectorAll('.achievement-item');
+            achievementItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, (index + 3) * 200);
             });
         });
     </script>
